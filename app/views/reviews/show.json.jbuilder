@@ -1,0 +1,1 @@
+json.extract! @review, :id, :faculty_expertise, :faculty_communication, :cost_worth, :transport, :library, :satisfaction_rate, :infrastructure, :sports, :research, :any_comments, :is_approved, :user_id, :school_id, :created_at, :updated_at

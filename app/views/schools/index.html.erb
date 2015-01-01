@@ -1,0 +1,36 @@
+<div class='row'><h1 class='col-md-10'>Listing schools</h1> <h3 class='col-md-2 pull-right'>Count: <%=@schools.size%></h3></div>
+
+<table  class='table table-hover'>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Address # City # State</th>
+      <th>Category</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @schools.each do |school| %>
+      <tr>
+        <td><%= link_to school.name, school %></td>
+        <td><%=school.address%>,<%=school.city%>, <%=school.state%></td>
+        <td><%= school.category %></td>
+
+        <td><%if can? :edit, @school%><%= link_to '<button type="button" class="btn btn-primary btn-xs">Edit</button>'.html_safe, edit_school_path(school) %><%end%></td>
+        <td>
+          <%if can? :delete, @school%>
+          <%#    <%= link_to 'Destroy', school, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-xs'%>
+          <%end%>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%=will_paginate @users%>
+<br>
+
+<%= link_to 'Create a School', new_school_path %>
