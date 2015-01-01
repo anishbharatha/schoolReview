@@ -1,0 +1,66 @@
+<div class='row'><h1 class='col-md-10'>Listing reviews</h1> <h3 class='col-md-2 pull-right'>Count: <%=@reviews.size%></h3></div>
+
+<table class='table table-condensed table-hover' style='border-collapse: collapse'>
+  <thead>
+    <tr>
+      <th>Averaged</th>
+      <th>Headline</th>
+      <th>User</th>
+      <th>School</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <%@reviews.each do |review|%>
+      <tr data-toggle="collapse" data-target='#<%=review.id%>'.html_safe class="accordion-toggle">
+        <td><%= review.faculty_expertise+review.faculty_communication+review.cost_worth+
+            review.transport+review.library+review.satisfaction_rate+review.infrastructure+
+            review.sports+review.research %></td>
+        <td><b><%=review.headline%></b></td>
+        <td><%= review.user.email %></td>
+        <td><%= review.school.name %></td>
+        <td>
+          <%if review.is_approved==false%>
+              <%=link_to '<button type="button" class="btn btn-warning btn-xs">Approve</button>'.html_safe,
+                         approve_review_path(id: review.id),data: {confirm: 'Are you sure?'}%>
+          <%else%>
+              Approved
+          <%end%>
+        </td>
+        <td><%= link_to 'Show', review %></td>
+        <td><%if can? :edit, @review%><%= link_to 'Edit', edit_review_path(review)%><%end%></td>
+        <td><%if can? :destroy, @review%>
+              <%#<%= link_to 'Destroy', review, method: :delete, data: { confirm: 'Are you sure?'}, class:'btn btn-danger btn-xs'%>
+          <%end%>
+        </td>
+      </tr>
+      <tr class='hiddenRow accordion-body collapse no-border' id='<%=review.id%>'.html_safe>
+        <td></td>
+        <td colspan='6'>Comments : <%=review.any_comments%></td>
+      </tr>
+    <%end%>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Review', new_review_path %>
+
+<style>
+.hiddenRow {
+padding: 0 !important;
+}
+    tr.no-border td{
+            border:0;
+        }
+</style>
+
+<script>
+    $('.collapse').on('show.bs.collapse', function () {
+        $('.collapse.in').collapse('hide');
+
+    });
+</script>

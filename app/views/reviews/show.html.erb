@@ -1,0 +1,70 @@
+<%= link_to 'Back', reviews_path %>
+<%if can? :edit, @review%> | <%= link_to 'Edit', edit_review_path(@review) %><%end%>
+
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Headline:</strong>
+  <%= @review.headline %>
+</p>
+
+<p>
+  <strong>Faculty expertise:</strong>
+  <%=@review.faculty_expertise%>
+</p>
+
+<p>
+  <strong>Faculty communication:</strong>
+  <%= @review.faculty_communication %>
+</p>
+
+<p>
+  <strong>Cost worth:</strong>
+  <%= @review.cost_worth %>
+</p>
+
+<p>
+  <strong>Transport:</strong>
+  <%= @review.transport %>
+</p>
+
+<p>
+  <strong>Library:</strong>
+  <%= @review.library %>
+</p>
+
+<p>
+  <strong>Satisfaction rate:</strong>
+  <%= @review.satisfaction_rate %>
+</p>
+
+<p>
+  <strong>Infrastructure:</strong>
+  <%= @review.infrastructure %>
+</p>
+
+<p>
+  <strong>Sports:</strong>
+  <%= @review.sports %>
+</p>
+
+<p>
+  <strong>Research:</strong>
+  <%= @review.research %>
+</p>
+
+<p>
+  <strong>Any comments:</strong>
+  <%= @review.any_comments %>
+</p>
+
+<p>
+  <strong>Is approved:</strong>
+  <%= @review.is_approved %>
+</p>
+
+<p>
+  <strong>School:</strong>
+  <%= @review.school.name %>
+</p>

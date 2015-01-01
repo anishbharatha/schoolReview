@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  subject_user_id: 
+  operation: MyString
+  created_at: 2014-12-31
+  created_by_id: 
+  comments: MyString
+
+two:
+  subject_user_id: 
+  operation: MyString
+  created_at: 2014-12-31
+  created_by_id: 
+  comments: MyString

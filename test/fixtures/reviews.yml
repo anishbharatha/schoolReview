@@ -1,0 +1,31 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  faculty_expertise: 9.99
+  faculty_communication: 9.99
+  cost_worth: 9.99
+  transport: 9.99
+  library: 9.99
+  satisfaction_rate: 9.99
+  infrastructure: 9.99
+  sports: 9.99
+  research: 9.99
+  any_comments: MyString
+  is_approved: false
+  user_id: 
+  school_id: 
+
+two:
+  faculty_expertise: 9.99
+  faculty_communication: 9.99
+  cost_worth: 9.99
+  transport: 9.99
+  library: 9.99
+  satisfaction_rate: 9.99
+  infrastructure: 9.99
+  sports: 9.99
+  research: 9.99
+  any_comments: MyString
+  is_approved: false
+  user_id: 
+  school_id: 

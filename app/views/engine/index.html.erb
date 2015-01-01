@@ -1,0 +1,73 @@
+<div class='row'>
+  <h1 class='col-md-3'>Listing users</h1>
+  <%= form_tag search_users_path, :method=>'get', :class=>'col-md-7 form-inline', :style=>'margin-bottom:0px;' do%>
+      <%=text_field_tag :search, params[:search], :class=>'form-control',
+                        :style=>'width:75%',:placeholder=>'Type in user public name or email id'%>
+      <div class='form-group'>
+        <%=submit_tag :'Search users', :name=>nil, :class=>'btn btn-success'%>
+      </div>
+  <%end%>
+
+  <h3 class='col-md-2 pull-right'>Count: <%=@users.size%></h3>
+</div>
+
+<table class='table table-hover'>
+  <thead>
+  <tr>
+    <th>Public Name</th>
+    <th>Email</th>
+    <th>Author</th>
+    <th>Moderator</th>
+    <th>Admin</th>
+    <th>Restricted</th>
+    <th>Member Since</th>
+    <th></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @users.each do |user| %>
+      <tr>
+
+        <td><%=user.public_name%></td>
+        <td><%=user.email%></td>
+        <%if user.role=='banned'%>
+            <td colspan='3'>
+              <p class='alert-warning'> <span class="glyphicon glyphicon-warning-sign" aria-hidden="true"></span>
+                User banned.</p>
+            </td>
+            <td><%=link_to '<button type="button" class="btn btn-success btn-xs">Unrestrict</button>'.html_safe,
+                 update_user_role_path(id: user.id, role: 'author'),data: {confirm: 'Are you sure?'}%></td>
+
+        <%elsif user.role=='author'%>
+            <td><span class="glyphicon glyphicon-record" aria-hidden="true"></span></td>
+            <td><%=link_to '<button type="button" class="btn btn-primary btn-xs">Moderator</button>'.html_safe,
+                   update_user_role_path(id: user.id, role: 'moderator'),data: {confirm: 'Are you sure?'}%></td>
+            <td><%=link_to '<button type="button" class="btn btn-warning btn-xs">Admin</button>'.html_safe,
+                   update_user_role_path(id: user.id, role: 'admin'),data: {confirm: 'Are you sure?'}%></td>
+            <td><%=link_to '<button type="button" class="btn btn-danger btn-xs">Restrict/Ban</button>'.html_safe,
+                   update_user_role_path(id: user.id, role: 'banned'),data: {confirm: 'Are you sure?'}%></td>
+        <%elsif user.role=='moderator'%>
+            <td><%=link_to '<button type="button" class="btn btn-info btn-xs">Author</button>'.html_safe,
+                   update_user_role_path(id: user.id, role: 'author'),data: {confirm: 'Are you sure?'}%></td>
+            <td><span class="glyphicon glyphicon-record" aria-hidden="true"></span></td>
+            <td><%=link_to '<button type="button" class="btn btn-warning btn-xs">Admin</button>'.html_safe,
+                   update_user_role_path(id: user.id, role: 'admin'),data: {confirm: 'Are you sure?'}%></td>
+            <td><%=link_to '<button type="button" class="btn btn-danger btn-xs">Restrict/Ban</button>'.html_safe,
+                   update_user_role_path(id: user.id, role: 'banned'),data: {confirm: 'Are you sure?'}%></td>
+        <%elsif user.role=='admin'%>
+            <td><%=link_to '<button type="button" class="btn btn-info btn-xs">Author</button>'.html_safe,
+                   update_user_role_path(id: user.id, role: 'author'),data: {confirm: 'Are you sure?'}%></td>
+            <td><%=link_to '<button type="button" class="btn btn-primary btn-xs">Moderator</button>'.html_safe,
+                   update_user_role_path(id: user.id, role: 'moderator'),data: {confirm: 'Are you sure?'}%></td>
+            <td><span class="glyphicon glyphicon-record" aria-hidden="true"></span></td>
+            <td><%=link_to '<button type="button" class="btn btn-danger btn-xs">Restrict/Ban</button>'.html_safe,
+                   update_user_role_path(id: user.id, role: 'banned'),data: {confirm: 'Are you sure?'}%></td>
+        <%end%>
+        <td><%=user.created_at%></td>
+      </tr>
+  <%end%>
+  </tbody>
+</table>
+
+<%= will_paginate @users %>

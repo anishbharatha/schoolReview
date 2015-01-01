@@ -1,0 +1,102 @@
+<%= form_for @review, :html=>{:multipart=>true},
+             html: {class: 'form-horizontal', style:'margin-top:10px'} do |f| %>
+    <% if @review.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@review.errors.count, 'error') %> prohibited this review from being saved:</h2>
+      <ul>
+      <% @review.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class='row'>
+    <div class='form-group col-md-8'>
+      <%= f.label :school_id %><br>
+      <% if current_page?(:action=>'new') %>
+          <%= f.collection_select(:school_id, @schools, :id, :name, :include_blank =>'Select School', :class=>'form-control dropdown') %>
+      <%else%>
+          <%= f.collection_select(:school_id, @schools, :id, :name, :class=>'form-control dropdown') %>
+      <% end%>
+    </div>
+  </div>
+
+    <div class='row'>
+      <div class='col-md-12 form-group input-group input-group-lg'>
+        <%= f.label :headline %><br>
+        <%= f.text_field :headline, :class=>'form-control headline', :placeholder=>'Headline'%>
+      </div>
+    </div>
+
+    <div class='row'>
+      <div class='form-group col-md-3'>
+        <%= f.label :faculty_expertise %><br>
+        <%=f.text_field :faculty_expertise%>
+      </div>
+
+        <div class='form-group col-md-3'>
+        <%= f.label :faculty_communication %><br>
+        <%= f.text_field :faculty_communication %>
+        </div>
+        <div class='form-group col-md-3'>
+        <%= f.label :cost_worth %><br>
+        <%= f.text_field :cost_worth %>
+        </div>
+    </div>
+
+    <div class='row'>
+        <div class='form-group col-md-3'>
+          <%= f.label :transport %><br>
+          <%= f.text_field :transport %>
+        </div>
+        <div class='form-group col-md-3'>
+        <%= f.label :library %><br>
+        <%= f.text_field :library %>
+        </div>
+        <div class='form-group col-md-3'>
+        <%= f.label :satisfaction_rate %><br>
+        <%= f.text_field :satisfaction_rate %>
+        </div>
+    </div>
+
+    <div class='row'>
+        <div class='form-group col-md-3'>
+        <%= f.label :infrastructure %><br>
+        <%= f.text_field :infrastructure %>
+      </div>
+        <div class='form-group col-md-3'>
+        <%= f.label :sports %><br>
+        <%= f.text_field :sports %>
+      </div>
+        <div class='form-group col-md-3'>
+        <%= f.label :research %><br>
+        <%= f.text_field :research %>
+      </div>
+    </div>
+
+    <div class='row'>
+      <div class='form-group col-md-12'>
+        <%= f.label :any_comments %><br>
+        <%= f.text_field :any_comments, :class=>'form-control', :placeholder=>'Comments'%>
+      </div>
+    </div>
+
+    <div class='row'>
+      <%if can? approve_review_path, @review%>
+          <div class='form-group'>
+            <%= f.label :is_approved %><br>
+            <%= f.check_box :is_approved %>
+      <%end%>
+      <div class='form-groupcol-md-12'>
+        <%= f.submit :class=>'btn btn-success'%>
+      </div>
+    </div>
+</div>
+<% end %>
+
+<style>
+  .headline{
+      font-size: 90px;
+  }
+</style>
