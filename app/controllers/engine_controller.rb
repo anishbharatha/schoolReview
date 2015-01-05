@@ -5,7 +5,8 @@ class EngineController < ApplicationController
 
   def landingPage
     @reviews = Review.all
-    respond_with(@reviews)
+    @current_user = User.current
+    respond_with(@reviews, @current_user)
   end
 
   def index

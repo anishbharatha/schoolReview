@@ -152,13 +152,13 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   devise (= 3.4.1)
   haml (~> 4.0.6)
-  imagemagick-binaries
+  imagemagick-binaries (~> 6.8.7.5.1)
   jbuilder (~> 1.2)
   jquery-rails
   mailboxer
   mysql2
   rails (= 4.0.3)
-  rmagick
+  rmagick (~> 2.13.3)
   sass-rails (~> 4.0.0)
   sdoc
   turbolinks
