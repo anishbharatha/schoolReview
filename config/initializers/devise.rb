@@ -4,7 +4,16 @@ Devise.setup do |config|
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
   # confirmation, reset password and unlock tokens in the database.
-  # config.secret_key = '7ace0e073f9705d24a2dc84833bcb83daf222be3dca3bb421dd4fe3cc922dfb4709d8feeb3e720d0065c06995216c98d10b8f832632b5ff9de18af10bf816ba2'
+  if Rails.env.development?
+    # The default HTTP method used to sign out a resource. Default is :delete.
+    config.sign_out_via = :delete
+    config.secret_key = 'a54960290d6c59d8913ba887fa948117813196f92b958da210fa22a7068324d3d34985ea2efd665b3be988bbdd33e4394a398587b89832a614abaac467d300c4'
+  end
+
+  if Rails.env.production?
+    config.sign_out_via = :get
+    config.secret_key = 'ed353d8930e11fb3536eb265a86986949ab358d1e959d73ed5061473fe0917cbac19bb9b82bb6972703e27562abb004d35a46f71ce0ee2aca34ef9c24fb06dd3'
+  end
 
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
@@ -119,7 +128,7 @@ Devise.setup do |config|
   # initial account confirmation) to be applied. Requires additional unconfirmed_email
   # db field (see migrations). Until confirmed, new email is stored in
   # unconfirmed_email column, and copied to email column on successful confirmation.
-  config.reconfirmable = true
+  config.reconfirmable = false
 
   # Defines which key will be used when confirming an account
   # config.confirmation_keys = [ :email ]

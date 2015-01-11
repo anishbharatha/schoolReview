@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  sender_email: MyString
+  message: MyText
+  is_acknowledged: false
+
+two:
+  sender_email: MyString
+  message: MyText
+  is_acknowledged: false

@@ -2,3 +2,34 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "custom-css";
+
+//Styles for header-row
+@font-face {
+  font-family: 'Sigmar One';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Sigmar One'), local('SigmarOne'), url(navbar-font.woff) format('woff');
+}
+.header-row{
+  width: 100%;
+  background-color: #464646;
+  #background-color: #333333;
+  opacity: 1;
+  padding-bottom: 10px;
+  padding-right: 10px;
+}
+.header-pipes{
+  font-family: 'Sigmar One', cursive;
+  font-size: 15px;
+  color: #ffffff;
+}
+.header-menu{
+  font-family: 'Sigmar One', cursive;
+  font-size: 25px;
+  color: #ffffff;
+}
+.header-menu:hover{
+  color: #ffffff;
+  text-decoration: none;
+  border-bottom: 4px solid #ffcc00;
+}

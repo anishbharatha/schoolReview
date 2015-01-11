@@ -9,56 +9,100 @@
   </div>
   <div class='col-md-9'>
     <h2><%= @school.name %> | <%=@school.aka.upcase! if @school.aka?%></h2>
-    <%=@school.address%>, <%=@school.city%>, <%=@school.state%>.
+    Located in <%=@school.address%>, <%=@school.city%>, <%=@school.state%>.
     <strong>Category:</strong> <%=@school.category%>.
     Website: <%=link_to @school.website, @school.website, :target=>'_blank'%>
   </div>
-  <div class='col-md-2'><p class='rating'>
+  <div class='col-md-2'>
     <%if @reviews.size!=0%>
-    <h2 class='final-rate'><%=((@reviews.average(:faculty_expertise)+@reviews.average(:faculty_communication)+
+    <h2 class='grand-rating'><%=((@reviews.average(:faculty_expertise)+@reviews.average(:faculty_communication)+
             @reviews.average(:cost_worth)+@reviews.average(:transport)+@reviews.average(:library)+
             @reviews.average(:satisfaction_rate)+@reviews.average(:infrastructure)+
-            @reviews.average(:sports)+@reviews.average(:research))/9).round(2) %></h2>
-    </p>
+            @reviews.average(:sports)+@reviews.average(:research))/9).round(1) %></h2>
     <%else%>
     <p class='has-warning'>No reviews.</p>
     <%end%>
   </div>
 </div>
 
-<%if @reviews.size==0%><h3>No reviews on this school. <%= link_to 'Write One?', new_review_path %></h3><%end%>
+<div class='row'>
+  <div class='col-md-8 text-left'>
+    <%if @reviews.size==0%>
+        <h4>No reviews on this school.</h4>
+    <%elsif @reviews.size==1%>
+        <h5><b><%=@reviews.size%> Review</b></h5><hr>
+    <%else%>
+        <h5><b><%=@reviews.size%> Reviews</b></h5><hr>
+    <%end%>
+  </div>
+  <div class='col-md-4 pull-right'><h4><%=link_to 'Click to share your reviews.', new_review_path %></h4></div>
+</div>
+
+<ul class="nav nav-tabs">
+  <li role="presentation"><a href="#">About</a></li>
+  <li role="presentation" class="active"><a href="#">Reviews</a></li>
+  <li role="presentation"><a href="#">Gallery</a></li>
+</ul>
 
 <%@reviews.each do |review| %>
     <div class='row'>
       <div class='col-md-10'>
         <h3><span class="glyphicon glyphicon-comment" aria-hidden="true"></span>&nbsp;<%=review.headline%></h3>
-        <small>Created on <i><%=review.created_at%></i></small>
       </div>
       <div class='col-md-2'>
         <h2><%=(review.faculty_expertise+review.faculty_communication+review.cost_worth+review.transport+
-                review.library+review.satisfaction_rate+review.infrastructure+review.sports+review.research)/9 %>
+                review.library+review.satisfaction_rate+review.infrastructure+review.sports+review.research)/9%>
         </h2>
       </div>
     </div>
 
     <div class='row'>
-
+      <div class='col-md-4'>
+        <i>Faculty Expertise: </i>
+        <input type="hidden" class="rating" value="<%=review.faculty_expertise/2%>" readonly="readonly" data-fractions="2"/>
+      </div>
+      <div class='col-md-4'>
+        <i>Faculty Communication: </i>
+        <input type="hidden" class="rating" value="<%=review.faculty_communication/2%>" readonly="readonly" data-fractions="2"/>
+      </div>
+      <div class='col-md-4'>
+        <i>Cost Worth: </i>
+        <input type="hidden" class="rating" value="<%=review.cost_worth/2%>" readonly="readonly" data-fractions="2"/>
+      </div>
     </div>
+
+    <div class='row'>
+      <div class='col-md-4'>
+        <i>Transport: </i>
+        <input type="hidden" class="rating" value="<%=review.transport/2%>" readonly="readonly" data-fractions="2"/>
+      </div>
+      <div class='col-md-4'>
+        <i>Library: </i>
+        <input type="hidden" class="rating" value="<%=review.library/2%>" readonly="readonly" data-fractions="2"/>
+      </div>
+      <div class='col-md-4'>
+        <i>Satisfaction Rate: </i>
+        <input type="hidden" class="rating" value="<%=review.satisfaction_rate/2%>" readonly="readonly" data-fractions="2"/>
+      </div>
+    </div>
+
+    <div class='row'>
+      <div class='col-md-4'>
+        <i>Infrastructure: </i>
+        <input type="hidden" class="rating" value="<%=review.infrastructure/2%>" readonly="readonly" data-fractions="2"/>
+      </div>
+      <div class='col-md-4'>
+        <i>Sports: </i>
+        <input type="hidden" class="rating" value="<%=review.sports/2%>" readonly="readonly" data-fractions="2"/>
+      </div>
+      <div class='col-md-4'>
+        <i>Research: </i>
+        <input type="hidden" class="rating" value="<%=review.research/2%>" readonly="readonly" data-fractions="2"/>
+      </div>
+    </div>
+
+    <div class='row col-md-10'>
+      <small class='pull-right'>By <i><%=review.user.public_name%></i> on <i><%=distance_of_time_in_words_to_now(review.created_at)%> ago</i></small>
+    </div>
+    <hr>
 <%end%>
-
-<style>
-  .final-rate{
-      display: block;
-      height: 60px;
-      width: 60px;
-      line-height: 60px;
-
-      -moz-border-radius: 30px; /* or 50% */
-      border-radius: 30px; /* or 50% */
-
-      background-color: darkred;
-      color: white;
-      text-align: center;
-      font-size: 2em;
-  }
-</style>

@@ -36,6 +36,8 @@ class User::RegistrationsController < Devise::RegistrationsController
   # GET /resource/edit
    def edit
      super
+     logger.debug '****EDIT****'
+     logger.debug resource.inspect.to_s
    end
 
   # PUT /resource

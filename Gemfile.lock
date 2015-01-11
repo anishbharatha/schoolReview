@@ -55,10 +55,8 @@ GEM
     erubis (2.7.0)
     execjs (2.2.2)
     ffi (1.9.6)
-    foreigner (1.7.1)
-      activerecord (>= 3.0.0)
-    haml (4.0.6)
-      tilt
+    gaffe (1.0.2)
+      rails (>= 3.2.0)
     hike (1.2.3)
     i18n (0.7.0)
     imagemagick-binaries (6.8.7.5.1)
@@ -73,16 +71,14 @@ GEM
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
-    mailboxer (0.12.4)
-      carrierwave (>= 0.5.8)
-      foreigner (>= 0.9.1)
-      rails (>= 3.2.0)
     mime-types (1.25.1)
     minitest (4.7.5)
     multi_json (1.10.1)
     mysql2 (0.3.17)
+    netrc (0.10.2)
     orm_adapter (0.5.0)
     polyglot (0.3.5)
+    power_assert (0.2.2)
     rack (1.5.2)
     rack-test (0.6.2)
       rack (>= 1.0)
@@ -102,8 +98,12 @@ GEM
     rake (10.4.2)
     rdoc (4.2.0)
       json (~> 1.4)
+    recaptcha (0.3.6)
     responders (1.1.2)
       railties (>= 3.2, < 4.2)
+    rest-client (1.7.2)
+      mime-types (>= 1.16, < 3.0)
+      netrc (~> 0.7)
     rmagick (2.13.3)
     sass (3.2.19)
     sass-rails (4.0.5)
@@ -114,6 +114,10 @@ GEM
     sdoc (0.4.1)
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
+    sendgrid-ruby (0.0.3)
+      rest-client
+      smtpapi
+    smtpapi (0.0.10)
     sprockets (2.12.3)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -125,6 +129,8 @@ GEM
       sprockets (~> 2.8)
     sys-uname (0.9.0)
       ffi (>= 1.0.0)
+    test-unit (3.0.9)
+      power_assert
     thor (0.19.1)
     thread_safe (0.3.4)
     tilt (1.4.1)
@@ -151,16 +157,18 @@ DEPENDENCIES
   carrierwave
   coffee-rails (~> 4.0.0)
   devise (= 3.4.1)
-  haml (~> 4.0.6)
-  imagemagick-binaries (~> 6.8.7.5.1)
+  gaffe (~> 1.0.2)
+  imagemagick-binaries
   jbuilder (~> 1.2)
   jquery-rails
-  mailboxer
   mysql2
   rails (= 4.0.3)
-  rmagick (~> 2.13.3)
+  recaptcha
+  rmagick
   sass-rails (~> 4.0.0)
   sdoc
+  sendgrid-ruby
+  test-unit
   turbolinks
   uglifier (>= 1.3.0)
   will_paginate (~> 3.0.7)

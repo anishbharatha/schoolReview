@@ -1,0 +1,25 @@
+<%=render 'message_box_links'%>
+
+
+<div class='row'>
+  <div class='col-md-12'><h2>Sent (<%=@sent_messages.count%>)</h2></div>
+</div>
+
+<table class='table table-responsive table-hover'>
+  <thead>
+  <tr>
+    <th>Sent to</th>
+    <th>Subject</th>
+    <th>Sent on</th>
+  </thead>
+
+  <tbody>
+  <% @sent_messages.each do |message| %>
+      <tr>
+        <td><%=message['public_name']%></td>
+        <td><%=link_to message['subject'], '/message_boxes/'+message['id'].to_s+'?ref=sent'%></td>
+        <td><%=message['created_at']%></td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>

@@ -1,0 +1,28 @@
+<%=render 'message_box_links'%>
+
+
+<div class='row'>
+  <div class='col-md-12'><h2>Trash (<%=@trash_messages.size%>)</h2></div>
+</div>
+
+<table class='table table-responsive table-hover'>
+  <thead>
+  <tr>
+    <th>From</th>
+    <th>To</th>
+    <th>Subject</th>
+    <th>Moved here on</th>
+  </thead>
+
+  <tbody>
+
+  <% @trash_messages.each do |message| %>
+      <tr>
+        <td><%=message['public_name']%></td>
+        <td><%=message['user_id']%></td>
+        <td><%=message['subject']%></td>
+        <td><%=time_ago_in_words(message['created_at'])%> ago</td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>

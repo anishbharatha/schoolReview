@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150101184438) do
+ActiveRecord::Schema.define(version: 20150111092123) do
 
   create_table "audits", force: true do |t|
     t.integer  "subject_user_id"
@@ -30,6 +30,14 @@ ActiveRecord::Schema.define(version: 20150101184438) do
     t.integer  "rateable_id"
     t.string   "rateable_type"
     t.float    "avg",           null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "contact_us", force: true do |t|
+    t.string   "sender_email"
+    t.text     "message"
+    t.boolean  "is_acknowledged"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -87,6 +95,16 @@ ActiveRecord::Schema.define(version: 20150101184438) do
   add_index "mailboxer_receipts", ["notification_id"], name: "index_mailboxer_receipts_on_notification_id", using: :btree
   add_index "mailboxer_receipts", ["receiver_id", "receiver_type"], name: "index_mailboxer_receipts_on_receiver_id_and_receiver_type", using: :btree
 
+  create_table "message_boxes", force: true do |t|
+    t.integer  "sender_id"
+    t.integer  "recipient_id"
+    t.string   "subject"
+    t.text     "body"
+    t.integer  "conversation_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "overall_averages", force: true do |t|
     t.integer  "rateable_id"
     t.string   "rateable_type"
@@ -119,6 +137,18 @@ ActiveRecord::Schema.define(version: 20150101184438) do
   end
 
   add_index "rating_caches", ["cacheable_id", "cacheable_type"], name: "index_rating_caches_on_cacheable_id_and_cacheable_type", using: :btree
+
+  create_table "recipients", force: true do |t|
+    t.integer  "message_id"
+    t.integer  "user_id"
+    t.boolean  "is_read"
+    t.boolean  "is_deleted"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "message_box_id"
+  end
+
+  add_index "recipients", ["message_box_id"], name: "index_recipients_on_message_box_id", using: :btree
 
   create_table "reviews", force: true do |t|
     t.decimal  "faculty_expertise",     precision: 10, scale: 0
@@ -154,6 +184,7 @@ ActiveRecord::Schema.define(version: 20150101184438) do
     t.string   "school_logo"
     t.string   "aka"
     t.string   "website"
+    t.date     "estd"
   end
 
   add_index "schools", ["user_id"], name: "index_schools_on_user_id", using: :btree
@@ -174,15 +205,14 @@ ActiveRecord::Schema.define(version: 20150101184438) do
     t.string   "role"
     t.string   "public_name"
     t.string   "full_name"
+    t.date     "dob"
+    t.string   "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
   end
 
+  add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
-
-  add_foreign_key "mailboxer_conversation_opt_outs", "mailboxer_conversations", name: "mb_opt_outs_on_conversations_id", column: "conversation_id"
-
-  add_foreign_key "mailboxer_notifications", "mailboxer_conversations", name: "notifications_on_conversation_id", column: "conversation_id"
-
-  add_foreign_key "mailboxer_receipts", "mailboxer_notifications", name: "receipts_on_notification_id", column: "notification_id"
 
 end
