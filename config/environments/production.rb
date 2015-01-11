@@ -77,4 +77,9 @@ SchoolReview::Application.configure do
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
+
+  # Default Mailer Host
+  Rails.application.routes.default_url_options[:host] = 'http://ec2-54-67-101-0.us-west-1.compute.amazonaws.com'
+  # To serve static assets
+  config.serve_static_assets  = true
 end

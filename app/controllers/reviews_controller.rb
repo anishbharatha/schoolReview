@@ -5,7 +5,7 @@ class ReviewsController < ApplicationController
   respond_to :html
 
   def index
-    @reviews = Review.all
+    @reviews = Review.all.order(:is_approved)
     respond_with(@reviews)
   end
 

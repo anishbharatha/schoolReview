@@ -1,0 +1,47 @@
+<%=link_to 'Back', :back%>
+
+<div class='row'>
+  <div class='col-md-6'>
+    <%=render 'message_box_links'%>
+    <br/>
+
+    <p id="notice"><%= notice %></p>
+
+    <%if @ref=='inbox'%>
+        <%=link_to 'Back to Inbox', message_boxes_path%>
+    <%end%>
+
+    <div class='row' style='margin-top: 20px;'>
+      <div class='col-md-6'>
+      <strong>From:</strong>
+      <%= User.find(@message_box.sender_id).public_name%>
+      </div>
+    </div>
+
+    <%if@ref=='sent'%>
+        <div class='row'>
+          <div class='col-md-6'>
+              <strong>Sent to:</strong>
+              <%= @message_box.recipient_id %>
+          </div>
+        </div>
+    <%end%>
+
+    <div class='row'>
+      <div class='col-md-6'>
+          <strong>Subject:</strong>
+          <%= @message_box.subject %>
+      </div>
+    </div>
+
+    <div class='row'>
+      <div class='col-md-6'>
+          <strong>Body:</strong>
+          <%= @message_box.body %>
+      </div>
+    </div>
+
+    <%=link_to 'Edit', edit_message_box_path(@message_box)%>
+
+  </div>
+</div>

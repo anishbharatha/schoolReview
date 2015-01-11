@@ -1,0 +1,36 @@
+<h1>New message</h1>
+
+<%= form_for(@message_box) do |f| %>
+    <% if @message_box.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@message_box.errors.count, 'error') %> prohibited this message_box from being saved:</h2>
+
+          <ul>
+            <% @message_box.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <div class='form-group'>
+      <label>Send To: </label>
+      <%=f.collection_select(:recipient_id, @public_names, :id, :public_name, :include_blank =>'Select Recipient', :class=>'form-control dropdown') %>
+
+    </div>
+
+    <div class='form-group'>
+      <label>Subject: </label>
+      <%= f.text_field :subject %>
+    </div>
+    <div class='form-group'>
+      <label>Body: </label><br/>
+      <%= f.text_area :body %>
+    </div>
+
+    <div class='form-group'>
+      <%= f.submit 'Send Message' %>
+    </div>
+<% end %>
+
+<%= link_to 'Back', message_boxes_path %>

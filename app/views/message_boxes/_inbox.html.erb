@@ -1,0 +1,33 @@
+<div class='row'>
+  <div class='col-md-12'><h2>Inbox (<%=(@inbox_messages.try(:length) || 0)%>)</h2></div>
+</div>
+
+<table class='table table-responsive table-hover'>
+  <thead>
+  <tr>
+    <th>From</th>
+    <th>Subject</th>
+    <th>Sent on</th>
+  </thead>
+
+  <tbody>
+  <%if !@inbox_messages.blank?%>
+      <%@inbox_messages.each do |message|%>
+        <tr <% if message['is_read']==0%> class='unread'> <%else%> ><%end%>
+          <td><%=message['public_name']%></td>
+          <td><%=link_to message['subject'], '/message_boxes/'+message['id'].to_s+'?ref=inbox&rid='+message['rid'].to_s%></td>
+          <td><%=time_ago_in_words(message['created_at'])%></td>
+          <td><%=link_to '<button class="btn btn-xs btn-warning">Move to Trash</button>'.html_safe,
+                 move_to_trash_path(:rid=> message['rid']), data:{confirm:'Are you sure?'}%>
+          </td>
+        </tr>
+      <%end%>
+  <%end%>
+  </tbody>
+</table>
+
+<style>
+  .unread td {
+      font-weight: bold;
+  }
+</style>

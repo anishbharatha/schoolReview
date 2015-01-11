@@ -12,12 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
-//= require bootstrap-sprockets
+// require turbolinks
+// require bootstrap-sprockets
 // require jquery-ui
-//= require_tree .
-
-var ready;
-ready=(function(){
-
-});
+// require_tree .
