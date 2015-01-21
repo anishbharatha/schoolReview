@@ -57,6 +57,7 @@ GEM
     ffi (1.9.6)
     gaffe (1.0.2)
       rails (>= 3.2.0)
+    hashie (3.3.2)
     hike (1.2.3)
     i18n (0.7.0)
     imagemagick-binaries (6.8.7.5.1)
@@ -76,6 +77,17 @@ GEM
     multi_json (1.10.1)
     mysql2 (0.3.17)
     netrc (0.10.2)
+    oauth (0.4.7)
+    omniauth (1.2.2)
+      hashie (>= 1.2, < 4)
+      rack (~> 1.0)
+    omniauth-google (1.0.2)
+      multi_json
+      omniauth (~> 1.0)
+      omniauth-oauth
+    omniauth-oauth (1.0.1)
+      oauth
+      omniauth (~> 1.0)
     orm_adapter (0.5.0)
     polyglot (0.3.5)
     power_assert (0.2.2)
@@ -162,6 +174,8 @@ DEPENDENCIES
   jbuilder (~> 1.2)
   jquery-rails
   mysql2
+  omniauth
+  omniauth-google
   rails (= 4.0.3)
   recaptcha
   rmagick

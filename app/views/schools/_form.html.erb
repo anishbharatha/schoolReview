@@ -21,7 +21,7 @@
 
       <div class='form-group col-md-8 pull-right'>
         <%= f.label :website %><br>
-        <%= f.text_field :website, :class=>'form-control', :placeholder=>'website'%>
+        <%= f.text_field :website, :class=>'form-control', :placeholder=>'website', :type=>'url', :required=>'required'%>
       </div>
     </div>
     <div class='row'>
@@ -31,19 +31,19 @@
       </div>
       <div class='form-group col-md-9 pull-right'>
         <%= f.label :school_name %>
-        <%= f.text_field :name,  :class=>'form-control', :placeholder=>'School Name'%>
+        <%= f.text_field :name,  :class=>'form-control', :placeholder=>'School Name', :required=>'required'%>
       </div>
     </div>
 
     <div class='form-group'>
       <%= f.label :address %><br>
-      <%= f.text_field :address, :class=>'form-control', :placeholder=>'Address'%>
+      <%= f.text_field :address, :class=>'form-control', :placeholder=>'Address', :required=>'required'%>
     </div>
 
     <div class='row'>
       <div class='form-group col-md-6'>
         <%= f.label :city %><br>
-        <%= f.text_field :city, :class=>'form-control', :placeholder=>'City'%>
+        <%= f.text_field :city, :class=>'form-control', :placeholder=>'City', :required=>'required'%>
       </div>
 
       <div class='form-group col-md-6 dropdown pull-right'>
