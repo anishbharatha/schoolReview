@@ -1,1 +1,4 @@
 [  18782]   WARN - ateSettings.impl.UpdateChecker - Failed to load plugin descriptions from: "http://git@github.com:anishbharatha/schoolReview.git" 
+[3156943]   WARN - api.vfs.impl.local.FileWatcher - Watcher terminated with exit code 0 
+[   7156]   WARN - ateSettings.impl.UpdateChecker - Failed to load plugin descriptions from: "http://git@github.com:anishbharatha/schoolReview.git" 
+[   5876]   WARN - ateSettings.impl.UpdateChecker - Failed to load plugin descriptions from: "http://git@github.com:anishbharatha/schoolReview.git" 
