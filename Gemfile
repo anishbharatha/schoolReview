@@ -20,6 +20,12 @@ gem 'turbolinks'
 gem 'test-unit'
 gem 'rmagick'
 gem 'mysql2'
+
+gem 'omniauth'
+gem 'omniauth-google'
+group :development do
+
+end
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false

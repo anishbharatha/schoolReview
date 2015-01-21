@@ -13,8 +13,8 @@ rerun.txt
 pickle-email-*.html
 
 # TODO Comment out these rules if you are OK with secrets being uploaded to the repo
-config/initializers/secret_token.rb
-config/secretkeys.yml
+#config/initializers/secret_token.rb
+#config/secretkeys.yml
 
 ## Environment normalisation:
 /.bundle
@@ -30,5 +30,5 @@ config/secretkeys.yml
 /vendor/assets/bower_components
 *.bowerrc
 bower.json
-config/database.yml
+#config/database.yml
 .idea*

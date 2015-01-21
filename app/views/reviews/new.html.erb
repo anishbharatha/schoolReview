@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+<script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
 <%= link_to 'Back', reviews_path %>
 
 <div class='row col-md-12'>
@@ -5,5 +7,171 @@
 </div>
 
 <div class='col-md-10'>
-  <%=render 'form'%>
+  <%= form_for @review, :html=>{:multipart=>true},
+               html: {class: 'form-horizontal', style:'margin-top:10px', onsubmit:'doValidation()'} do |f| %>
+      <% if @review.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@review.errors.count, 'error') %> prohibited this review from being saved:</h2>
+            <ul>
+              <% @review.errors.full_messages.each do |msg| %>
+                  <li><%= msg %></li>
+              <% end %>
+            </ul>
+          </div>
+      <% end %>
+
+      <div class='row'>
+        <div id='the-basics' class='col-md-12 form-group input-group input-group-lg'>
+          <%= f.label :school_id %>
+        </div>
+        <!--<input type='hidden' id='schools' value='<%=@schools.to_json%>'>
+
+        <div id="project-label">Select a project (type "j" for a start):</div>
+        <input id="school" class='form-control'>
+        <input type="hidden" id="school-id">
+        <p id="school-description"></p>-->
+      </div>
+
+      </div>
+
+      <div class='row'>
+        <div class='form-group col-md-8'>
+          <% if current_page?(:action=>'new') %>
+              <%#= f.collection_select(:school_id, @schools, :id, :name, :include_blank =>'Select School', :class=>'form-control dropdown') %>
+          <%else%>
+              <%#= f.collection_select(:school_id, @schools, :id, :name, :class=>'form-control dropdown') %>
+          <% end%>
+        </div>
+        <%= content_tag :div, class:'temp_schools', data: {temp: @schools} do %>
+        <% end %>
+      </div>
+
+      <div class='row'>
+        <div class='col-md-12 form-group input-group input-group-lg'>
+          <%= f.label :headline %><br>
+          <%= f.text_field :headline, :class=>'form-control headline', :placeholder=>'Headline', :required=>'required'%>
+        </div>
+      </div>
+
+      <div class='row'>
+        <div class='form-group col-md-4'>
+          <%= f.label :faculty_expertise %><br>   <%=f.hidden_field :faculty_expertise%>
+          <input type="hidden" id="stars-fe" class="rating" value="0" data-fractions="2"/>
+        </div>
+
+        <div class='form-group col-md-4'>
+          <%= f.label :faculty_communication %><br>   <%= f.hidden_field :faculty_communication %>
+          <input type="hidden" id="stars-fc" class="rating" value="0" data-fractions="2"/>
+        </div>
+
+        <div class='form-group col-md-4'>
+          <%= f.label :cost_worth %><br>  <%= f.hidden_field :cost_worth %>
+          <input type="hidden" id="stars-cw" class="rating" value="0" data-fractions="2"/>
+        </div>
+      </div>
+
+      <div class='row'>
+        <div class='form-group col-md-4'>
+          <%= f.label :transport %><br> <%= f.hidden_field :transport %>
+          <input type="hidden" id="stars-tr" class="rating" value="0" data-fractions="2"/>
+        </div>
+        <div class='form-group col-md-4'>
+          <%= f.label :library %><br> <%= f.hidden_field :library %>
+          <input type="hidden" id="stars-li" class="rating" value="0" data-fractions="2"/>
+        </div>
+        <div class='form-group col-md-4'>
+          <%= f.label :satisfaction_rate %><br>   <%= f.hidden_field :satisfaction_rate %>
+          <input type="hidden" id="stars-sr" class="rating" value="0" data-fractions="2"/>
+        </div>
+      </div>
+
+      <div class='row'>
+        <div class='form-group col-md-4'>
+          <%= f.label :infrastructure %><br>  <%= f.hidden_field :infrastructure %>
+          <input type="hidden" id="stars-in" class="rating" value="0" data-fractions="2"/>
+        </div>
+        <div class='form-group col-md-4'>
+          <%= f.label :sports %><br>  <%= f.hidden_field :sports %>
+          <input type="hidden" id="stars-sp" class="rating" value="0" data-fractions="2"/>
+        </div>
+        <div class='form-group col-md-4'>
+          <%= f.label :research %><br>    <%= f.hidden_field :research %>
+          <input type="hidden" id="stars-re" class="rating" value="0" data-fractions="2"/>
+        </div>
+      </div>
+
+      <div class='row'>
+        <div class='form-group col-md-12'>
+          <%= f.label :any_comments %><br>
+          <%= f.text_area :any_comments, :class=>'form-control', :placeholder=>'Comments'%>
+        </div>
+      </div>
+
+      <div class='row'>
+        <%if can? approve_review_path, @review%>
+            <div class='form-group'>
+              <%= f.label :is_approved %><br>
+              <%= f.check_box :is_approved %>
+        <%end%>
+        <div class='form-groupcol-md-12'>
+          <%= f.submit :class=>'btn btn-success'%>
+        </div>
+        </div>
+      </div>
+  <% end %>
+
+  <style>
+    .headline{
+      font-size: 90px;
+    }
+  </style>
+  <script>
+      $(function() {
+          var projects = [
+              {
+                  value: "jquery", label: "jQuery", desc: "the write less, do more, JavaScript library"
+              },
+              {
+                  value: "jquery-ui", label: "jQuery UI", desc: "the official user interface library for jQuery"
+              }
+          ];
+
+          //alert(projects.toSource());
+          var schools   =   JSON.parse($('#schools').val());
+          //salert(schools.toSource());
+
+          $( "#school" ).autocomplete({
+              minLength: 0,
+              source: schools, //projects,
+              focus: function( event, ui ) {
+                  $( "#school" ).val( ui.item.name );
+                  return false;
+              },
+              select: function( event, ui ) {
+                  $( "#school" ).val( ui.item.name );
+                  $( "#project-id" ).val( ui.item.id );
+                  $( "#school-description" ).html( ui.item.address );
+                  return false;
+              }
+          })
+                  .autocomplete( "instance" )._renderItem = function( ul, item ) {
+              return $("<li>")
+                      .append("<a>"+item.name+"<br>"+item.address+"</a>")
+                      .appendTo( ul );
+          };
+      });
+  </script>
+  <script>
+    function doValidation(){
+      $('#review_faculty_expertise').attr('value',$('input#stars-fe').attr('value'));
+      $('#review_faculty_communication').attr('value',$('input#stars-fc').attr('value'));
+      $('#review_cost_worth').attr('value',$('input#stars-cw').attr('value'));
+      $('#review_transport').attr('value',$('input#stars-tr').attr('value'));
+      $('#review_library').attr('value',$('input#stars-li').attr('value'));
+      $('#review_satisfaction_rate').attr('value',$('input#stars-sr').attr('value'));
+      $('#review_infrastructure').attr('value',$('input#stars-in').attr('value'));
+      $('#review_sports').attr('value',$('input#stars-sp').attr('value'));
+      $('#review_research').attr('value',$('input#stars-re').attr('value'));
+    }
+  </script>
 </div>

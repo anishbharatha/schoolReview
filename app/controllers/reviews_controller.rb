@@ -10,12 +10,13 @@ class ReviewsController < ApplicationController
   end
 
   def show
+
     respond_with(@review)
   end
 
   def new
     @review = Review.new
-    @schools = School.all
+    @schools = School.select(:id, :name, :address)
     respond_with(@review, @schools)
   end
 
@@ -26,6 +27,7 @@ class ReviewsController < ApplicationController
   def create
     @review = Review.new(review_params)
     @review.user_id = current_user.id
+    logger.debug '*****REVIEW CREATE '+review_params.to_s
     @review.save
     respond_with(@review)
   end
