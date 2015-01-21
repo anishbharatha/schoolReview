@@ -22,6 +22,5 @@ module SchoolReview
 
     # For coffee scripts, javascripts
     config.assets.enabled = true
-
   end
 end
