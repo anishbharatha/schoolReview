@@ -19,17 +19,17 @@ gem 'carrierwave'
 gem 'turbolinks'
 gem 'test-unit'
 gem 'rmagick'
-gem 'mysql2'
-gem 'sqlite3'
-gem 'pg'
 
 gem 'omniauth'
 gem 'omniauth-google'
-group :development do
 
+group :development do
+  gem 'sqlite3'
 end
+
 group :production do
   gem 'rails_12factor'
+  gem 'pg'
 end
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
