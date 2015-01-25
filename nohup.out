@@ -2,3 +2,165 @@
 [3156943]   WARN - api.vfs.impl.local.FileWatcher - Watcher terminated with exit code 0 
 [   7156]   WARN - ateSettings.impl.UpdateChecker - Failed to load plugin descriptions from: "http://git@github.com:anishbharatha/schoolReview.git" 
 [   5876]   WARN - ateSettings.impl.UpdateChecker - Failed to load plugin descriptions from: "http://git@github.com:anishbharatha/schoolReview.git" 
+
+(pgadmin3:10196): GLib-GObject-WARNING **: invalid cast from `GtkFileChooserButton' to `GtkBin'
+
+(pgadmin3:10196): Gtk-CRITICAL **: IA__gtk_widget_modify_style: assertion `GTK_IS_WIDGET (widget)' failed
+
+(pgadmin3:10196): GLib-GObject-WARNING **: invalid cast from `GtkFileChooserButton' to `GtkBin'
+
+(pgadmin3:10196): Gtk-CRITICAL **: IA__gtk_widget_modify_style: assertion `GTK_IS_WIDGET (widget)' failed
+
+(pgadmin3:10196): GLib-GObject-WARNING **: invalid cast from `GtkFileChooserButton' to `GtkBin'
+
+(pgadmin3:10196): Gtk-CRITICAL **: IA__gtk_widget_modify_style: assertion `GTK_IS_WIDGET (widget)' failed
+
+(pgadmin3:10196): GLib-GObject-WARNING **: invalid cast from `GtkFileChooserButton' to `GtkBin'
+
+(pgadmin3:10196): Gtk-CRITICAL **: IA__gtk_widget_modify_style: assertion `GTK_IS_WIDGET (widget)' failed
+
+(pgadmin3:10196): GLib-GObject-WARNING **: invalid cast from `GtkFileChooserButton' to `GtkBin'
+
+(pgadmin3:10196): Gtk-CRITICAL **: IA__gtk_widget_modify_style: assertion `GTK_IS_WIDGET (widget)' failed
+
+(pgadmin3:10196): GLib-GObject-WARNING **: invalid cast from `GtkFileChooserButton' to `GtkBin'
+
+(pgadmin3:10196): Gtk-CRITICAL **: IA__gtk_widget_modify_style: assertion `GTK_IS_WIDGET (widget)' failed
+
+(pgadmin3:10196): GLib-GObject-WARNING **: invalid cast from `GtkFileChooserButton' to `GtkBin'
+
+(pgadmin3:10196): Gtk-CRITICAL **: IA__gtk_widget_modify_style: assertion `GTK_IS_WIDGET (widget)' failed
+
+(pgadmin3:10196): GLib-GObject-WARNING **: invalid cast from `GtkFileChooserButton' to `GtkBin'
+
+(pgadmin3:10196): Gtk-CRITICAL **: IA__gtk_widget_modify_style: assertion `GTK_IS_WIDGET (widget)' failed
+
+(pgadmin3:10196): GLib-GObject-WARNING **: invalid cast from `GtkFileChooserButton' to `GtkBin'
+
+(pgadmin3:10196): Gtk-CRITICAL **: IA__gtk_widget_modify_style: assertion `GTK_IS_WIDGET (widget)' failed
+
+(pgadmin3:10196): GLib-GObject-WARNING **: invalid cast from `GtkFileChooserButton' to `GtkBin'
+
+(pgadmin3:10196): Gtk-CRITICAL **: IA__gtk_widget_modify_style: assertion `GTK_IS_WIDGET (widget)' failed
+
+(pgadmin3:10196): GLib-GObject-WARNING **: invalid cast from `GtkFileChooserButton' to `GtkBin'
+
+(pgadmin3:10196): Gtk-CRITICAL **: IA__gtk_widget_modify_style: assertion `GTK_IS_WIDGET (widget)' failed
+
+(pgadmin3:10196): GLib-GObject-WARNING **: invalid cast from `GtkFileChooserButton' to `GtkBin'
+
+(pgadmin3:10196): Gtk-CRITICAL **: IA__gtk_widget_modify_style: assertion `GTK_IS_WIDGET (widget)' failed
+
+(pgadmin3:10196): GLib-GObject-WARNING **: invalid cast from `GtkFileChooserButton' to `GtkBin'
+
+(pgadmin3:10196): Gtk-CRITICAL **: IA__gtk_widget_modify_style: assertion `GTK_IS_WIDGET (widget)' failed
+
+(pgadmin3:10196): GLib-GObject-WARNING **: invalid cast from `GtkFileChooserButton' to `GtkBin'
+
+(pgadmin3:10196): Gtk-CRITICAL **: IA__gtk_widget_modify_style: assertion `GTK_IS_WIDGET (widget)' failed
+
+(pgadmin3:10196): GLib-GObject-WARNING **: invalid cast from `GtkFileChooserButton' to `GtkBin'
+
+(pgadmin3:10196): Gtk-CRITICAL **: IA__gtk_widget_modify_style: assertion `GTK_IS_WIDGET (widget)' failed
+
+(pgadmin3:10196): GLib-GObject-WARNING **: invalid cast from `GtkFileChooserButton' to `GtkBin'
+
+(pgadmin3:10196): Gtk-CRITICAL **: IA__gtk_widget_modify_style: assertion `GTK_IS_WIDGET (widget)' failed
+
+(pgadmin3:10196): GLib-GObject-WARNING **: invalid cast from `GtkFileChooserButton' to `GtkBin'
+
+(pgadmin3:10196): Gtk-CRITICAL **: IA__gtk_widget_modify_style: assertion `GTK_IS_WIDGET (widget)' failed
+
+(pgadmin3:10196): GLib-GObject-WARNING **: invalid cast from `GtkFileChooserButton' to `GtkBin'
+
+(pgadmin3:10196): Gtk-CRITICAL **: IA__gtk_widget_modify_style: assertion `GTK_IS_WIDGET (widget)' failed
+
+(pgadmin3:10196): GLib-GObject-WARNING **: invalid cast from `GtkFileChooserButton' to `GtkBin'
+
+(pgadmin3:10196): Gtk-CRITICAL **: IA__gtk_widget_modify_style: assertion `GTK_IS_WIDGET (widget)' failed
+
+(pgadmin3:10196): GLib-GObject-WARNING **: invalid cast from `GtkFileChooserButton' to `GtkBin'
+
+(pgadmin3:10196): Gtk-CRITICAL **: IA__gtk_widget_modify_style: assertion `GTK_IS_WIDGET (widget)' failed
+
+(pgadmin3:10196): GLib-GObject-WARNING **: invalid cast from `GtkFileChooserButton' to `GtkBin'
+
+(pgadmin3:10196): Gtk-CRITICAL **: IA__gtk_widget_modify_style: assertion `GTK_IS_WIDGET (widget)' failed
+
+(pgadmin3:10196): GLib-GObject-WARNING **: invalid cast from `GtkFileChooserButton' to `GtkBin'
+
+(pgadmin3:10196): Gtk-CRITICAL **: IA__gtk_widget_modify_style: assertion `GTK_IS_WIDGET (widget)' failed
+
+(pgadmin3:10196): GLib-GObject-WARNING **: invalid cast from `GtkFileChooserButton' to `GtkBin'
+
+(pgadmin3:10196): Gtk-CRITICAL **: IA__gtk_widget_modify_style: assertion `GTK_IS_WIDGET (widget)' failed
+
+(pgadmin3:10196): GLib-GObject-WARNING **: invalid cast from `GtkFileChooserButton' to `GtkBin'
+
+(pgadmin3:10196): Gtk-CRITICAL **: IA__gtk_widget_modify_style: assertion `GTK_IS_WIDGET (widget)' failed
+[255854787]   WARN - api.vfs.impl.local.FileWatcher - Watcher terminated with exit code 0 
+[  35224]   WARN - ateSettings.impl.UpdateChecker - Failed to load plugin descriptions from: "http://git@github.com:anishbharatha/schoolReview.git" 
+[ 309988]   WARN - nsight.nativerb.StubsGenRunner - Error running stubs generator for pg: /home/anish/.rvm/gems/ruby-2.1.1/gems/rdoc-4.2.0/lib/rdoc/markup/to_joined_paragraph.rb:9:in `<top (required)>': uninitialized constant RDoc::Markup::Formatter (NameError)
+	from /home/anish/.rvm/rubies/ruby-2.1.1/lib/ruby/site_ruby/2.1.0/rubygems/core_ext/kernel_require.rb:54:in `require'
+	from /home/anish/.rvm/rubies/ruby-2.1.1/lib/ruby/site_ruby/2.1.0/rubygems/core_ext/kernel_require.rb:54:in `require'
+	from /home/anish/.rvm/gems/ruby-2.1.1/gems/rdoc-4.2.0/lib/rdoc/markdown.rb:530:in `<class:Markdown>'
+	from /home/anish/.rvm/gems/ruby-2.1.1/gems/rdoc-4.2.0/lib/rdoc/markdown.rb:169:in `<top (required)>'
+	from /home/anish/.rvm/gems/ruby-2.1.1/gems/rdoc-4.2.0/lib/rdoc/text.rb:28:in `<module:Text>'
+	from /home/anish/.rvm/gems/ruby-2.1.1/gems/rdoc-4.2.0/lib/rdoc/text.rb:21:in `<top (required)>'
+	from /home/anish/.rvm/rubies/ruby-2.1.1/lib/ruby/site_ruby/2.1.0/rubygems/core_ext/kernel_require.rb:69:in `require'
+	from /home/anish/.rvm/rubies/ruby-2.1.1/lib/ruby/site_ruby/2.1.0/rubygems/core_ext/kernel_require.rb:69:in `require'
+	from /home/anish/RubyMine-7.0/rb/stubsgen/gems/gems/rdoc-3.9.4/lib/rdoc/code_object.rb:2:in `<top (required)>'
+	from /home/anish/.rvm/gems/ruby-2.1.1/gems/rdoc-4.2.0/lib/rdoc/generator/markup.rb:59:in `<top (required)>'
+	from /home/anish/.rvm/rubies/ruby-2.1.1/lib/ruby/site_ruby/2.1.0/rubygems/core_ext/kernel_require.rb:69:in `require'
+	from /home/anish/.rvm/rubies/ruby-2.1.1/lib/ruby/site_ruby/2.1.0/rubygems/core_ext/kernel_require.rb:69:in `require'
+	from /home/anish/.rvm/gems/ruby-2.1.1/gems/rdoc-4.2.0/lib/rdoc/generator/darkfish.rb:6:in `<top (required)>'
+	from /home/anish/.rvm/rubies/ruby-2.1.1/lib/ruby/site_ruby/2.1.0/rubygems/core_ext/kernel_require.rb:69:in `require'
+	from /home/anish/.rvm/rubies/ruby-2.1.1/lib/ruby/site_ruby/2.1.0/rubygems/core_ext/kernel_require.rb:69:in `require'
+	from /home/anish/.rvm/gems/ruby-2.1.1/gems/rdoc-4.2.0/lib/rdoc/rdoc.rb:567:in `<top (required)>'
+	from /home/anish/.rvm/rubies/ruby-2.1.1/lib/ruby/site_ruby/2.1.0/rubygems/core_ext/kernel_require.rb:69:in `require'
+	from /home/anish/.rvm/rubies/ruby-2.1.1/lib/ruby/site_ruby/2.1.0/rubygems/core_ext/kernel_require.rb:69:in `require'
+	from /home/anish/RubyMine-7.0/rb/stubsgen/our_rdoc.rb:3:in `<top (required)>'
+	from /home/anish/.rvm/rubies/ruby-2.1.1/lib/ruby/site_ruby/2.1.0/rubygems/core_ext/kernel_require.rb:121:in `require'
+	from /home/anish/.rvm/rubies/ruby-2.1.1/lib/ruby/site_ruby/2.1.0/rubygems/core_ext/kernel_require.rb:121:in `require'
+	from /home/anish/RubyMine-7.0/rb/stubsgen/gen_stubs.rb:12:in `<main>'
+ 
+[76947074]   WARN - api.vfs.impl.local.FileWatcher - Watcher terminated with exit code 0 
+[76947093]  ERROR - til.concurrency.QueueProcessor - java.lang.InterruptedException 
+com.intellij.openapi.application.RuntimeInterruptedException: java.lang.InterruptedException
+	at com.intellij.openapi.application.impl.ApplicationImpl.runReadAction(ApplicationImpl.java:903)
+	at com.intellij.openapi.vcs.changes.VcsDirtyScopeManagerImpl.filePathsDirty(VcsDirtyScopeManagerImpl.java:165)
+	at com.intellij.openapi.vcs.changes.VcsDirtyScopeVfsListener$FileAndDirsCollector.a(VcsDirtyScopeVfsListener.java:251)
+	at com.intellij.openapi.vcs.changes.VcsDirtyScopeVfsListener$FileAndDirsCollector.access$300(VcsDirtyScopeVfsListener.java:196)
+	at com.intellij.openapi.vcs.changes.VcsDirtyScopeVfsListener$1.run(VcsDirtyScopeVfsListener.java:92)
+	at com.intellij.openapi.vcs.ZipperUpdater$1.run(ZipperUpdater.java:64)
+	at com.intellij.util.concurrency.QueueProcessor.runSafely(QueueProcessor.java:238)
+	at com.intellij.util.Alarm$Request$1.run(Alarm.java:351)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:471)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:262)
+	at com.intellij.util.concurrency.QueueProcessor$RunnableConsumer.consume(QueueProcessor.java:298)
+	at com.intellij.util.concurrency.QueueProcessor$RunnableConsumer.consume(QueueProcessor.java:295)
+	at com.intellij.util.concurrency.QueueProcessor$2$1.run(QueueProcessor.java:110)
+	at com.intellij.util.concurrency.QueueProcessor.runSafely(QueueProcessor.java:238)
+	at com.intellij.util.concurrency.QueueProcessor$2.consume(QueueProcessor.java:107)
+	at com.intellij.util.concurrency.QueueProcessor$2.consume(QueueProcessor.java:104)
+	at com.intellij.util.concurrency.QueueProcessor$3$1.run(QueueProcessor.java:215)
+	at com.intellij.util.concurrency.QueueProcessor.runSafely(QueueProcessor.java:238)
+	at com.intellij.util.concurrency.QueueProcessor$3.run(QueueProcessor.java:212)
+	at com.intellij.openapi.application.impl.ApplicationImpl$8.run(ApplicationImpl.java:406)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:471)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:262)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+	at org.jetbrains.ide.PooledThreadExecutor$1$1.run(PooledThreadExecutor.java:56)
+Caused by: java.lang.InterruptedException
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer.doAcquireSharedInterruptibly(AbstractQueuedSynchronizer.java:996)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer.acquireSharedInterruptibly(AbstractQueuedSynchronizer.java:1303)
+	at java.util.concurrent.locks.ReentrantReadWriteLock$ReadLock.lockInterruptibly(ReentrantReadWriteLock.java:776)
+	at com.intellij.openapi.application.impl.ApplicationImpl.runReadAction(ApplicationImpl.java:899)
+	... 25 more
+[76947108]  ERROR - til.concurrency.QueueProcessor - RubyMine 7.0.2  Build #RM-139.800 
+[76947108]  ERROR - til.concurrency.QueueProcessor - JDK: 1.7.0_65 
+[76947108]  ERROR - til.concurrency.QueueProcessor - VM: OpenJDK Server VM 
+[76947108]  ERROR - til.concurrency.QueueProcessor - Vendor: Oracle Corporation 
+[76947108]  ERROR - til.concurrency.QueueProcessor - OS: Linux 

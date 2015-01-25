@@ -20,6 +20,7 @@ gem 'turbolinks'
 gem 'test-unit'
 gem 'rmagick'
 gem 'mysql2'
+gem 'sqlite3'
 gem 'pg'
 
 gem 'omniauth'

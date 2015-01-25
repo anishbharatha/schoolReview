@@ -22,8 +22,8 @@ ActiveRecord::Schema.define(version: 20150111092123) do
     t.datetime "updated_at"
   end
 
-  add_index "audits", ["created_by_id"], name: "index_audits_on_created_by_id", using: :btree
-  add_index "audits", ["subject_user_id"], name: "index_audits_on_subject_user_id", using: :btree
+  add_index "audits", ["created_by_id"], name: "index_audits_on_created_by_id"
+  add_index "audits", ["subject_user_id"], name: "index_audits_on_subject_user_id"
 
   create_table "average_caches", force: true do |t|
     t.integer  "rater_id"
@@ -48,8 +48,8 @@ ActiveRecord::Schema.define(version: 20150111092123) do
     t.integer "conversation_id"
   end
 
-  add_index "mailboxer_conversation_opt_outs", ["conversation_id"], name: "index_mailboxer_conversation_opt_outs_on_conversation_id", using: :btree
-  add_index "mailboxer_conversation_opt_outs", ["unsubscriber_id", "unsubscriber_type"], name: "index_mailboxer_conversation_opt_outs_on_unsubscriber_id_type", using: :btree
+  add_index "mailboxer_conversation_opt_outs", ["conversation_id"], name: "index_mailboxer_conversation_opt_outs_on_conversation_id"
+  add_index "mailboxer_conversation_opt_outs", ["unsubscriber_id", "unsubscriber_type"], name: "index_mailboxer_conversation_opt_outs_on_unsubscriber_id_type"
 
   create_table "mailboxer_conversations", force: true do |t|
     t.string   "subject",    default: ""
@@ -75,10 +75,10 @@ ActiveRecord::Schema.define(version: 20150111092123) do
     t.datetime "expires"
   end
 
-  add_index "mailboxer_notifications", ["conversation_id"], name: "index_mailboxer_notifications_on_conversation_id", using: :btree
-  add_index "mailboxer_notifications", ["notified_object_id", "notified_object_type"], name: "index_mailboxer_notifications_on_notified_object_id_and_type", using: :btree
-  add_index "mailboxer_notifications", ["sender_id", "sender_type"], name: "index_mailboxer_notifications_on_sender_id_and_sender_type", using: :btree
-  add_index "mailboxer_notifications", ["type"], name: "index_mailboxer_notifications_on_type", using: :btree
+  add_index "mailboxer_notifications", ["conversation_id"], name: "index_mailboxer_notifications_on_conversation_id"
+  add_index "mailboxer_notifications", ["notified_object_id", "notified_object_type"], name: "index_mailboxer_notifications_on_notified_object_id_and_type"
+  add_index "mailboxer_notifications", ["sender_id", "sender_type"], name: "index_mailboxer_notifications_on_sender_id_and_sender_type"
+  add_index "mailboxer_notifications", ["type"], name: "index_mailboxer_notifications_on_type"
 
   create_table "mailboxer_receipts", force: true do |t|
     t.integer  "receiver_id"
@@ -92,8 +92,8 @@ ActiveRecord::Schema.define(version: 20150111092123) do
     t.datetime "updated_at",                                 null: false
   end
 
-  add_index "mailboxer_receipts", ["notification_id"], name: "index_mailboxer_receipts_on_notification_id", using: :btree
-  add_index "mailboxer_receipts", ["receiver_id", "receiver_type"], name: "index_mailboxer_receipts_on_receiver_id_and_receiver_type", using: :btree
+  add_index "mailboxer_receipts", ["notification_id"], name: "index_mailboxer_receipts_on_notification_id"
+  add_index "mailboxer_receipts", ["receiver_id", "receiver_type"], name: "index_mailboxer_receipts_on_receiver_id_and_receiver_type"
 
   create_table "message_boxes", force: true do |t|
     t.integer  "sender_id"
@@ -123,8 +123,8 @@ ActiveRecord::Schema.define(version: 20150111092123) do
     t.datetime "updated_at"
   end
 
-  add_index "rates", ["rateable_id", "rateable_type"], name: "index_rates_on_rateable_id_and_rateable_type", using: :btree
-  add_index "rates", ["rater_id"], name: "index_rates_on_rater_id", using: :btree
+  add_index "rates", ["rateable_id", "rateable_type"], name: "index_rates_on_rateable_id_and_rateable_type"
+  add_index "rates", ["rater_id"], name: "index_rates_on_rater_id"
 
   create_table "rating_caches", force: true do |t|
     t.integer  "cacheable_id"
@@ -136,7 +136,7 @@ ActiveRecord::Schema.define(version: 20150111092123) do
     t.datetime "updated_at"
   end
 
-  add_index "rating_caches", ["cacheable_id", "cacheable_type"], name: "index_rating_caches_on_cacheable_id_and_cacheable_type", using: :btree
+  add_index "rating_caches", ["cacheable_id", "cacheable_type"], name: "index_rating_caches_on_cacheable_id_and_cacheable_type"
 
   create_table "recipients", force: true do |t|
     t.integer  "message_id"
@@ -148,7 +148,7 @@ ActiveRecord::Schema.define(version: 20150111092123) do
     t.integer  "message_box_id"
   end
 
-  add_index "recipients", ["message_box_id"], name: "index_recipients_on_message_box_id", using: :btree
+  add_index "recipients", ["message_box_id"], name: "index_recipients_on_message_box_id"
 
   create_table "reviews", force: true do |t|
     t.decimal  "faculty_expertise",     precision: 10, scale: 0
@@ -169,8 +169,8 @@ ActiveRecord::Schema.define(version: 20150111092123) do
     t.string   "headline"
   end
 
-  add_index "reviews", ["school_id"], name: "index_reviews_on_school_id", using: :btree
-  add_index "reviews", ["user_id"], name: "index_reviews_on_user_id", using: :btree
+  add_index "reviews", ["school_id"], name: "index_reviews_on_school_id"
+  add_index "reviews", ["user_id"], name: "index_reviews_on_user_id"
 
   create_table "schools", force: true do |t|
     t.string   "name"
@@ -187,7 +187,7 @@ ActiveRecord::Schema.define(version: 20150111092123) do
     t.date     "estd"
   end
 
-  add_index "schools", ["user_id"], name: "index_schools_on_user_id", using: :btree
+  add_index "schools", ["user_id"], name: "index_schools_on_user_id"
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -211,8 +211,8 @@ ActiveRecord::Schema.define(version: 20150111092123) do
     t.datetime "confirmation_sent_at"
   end
 
-  add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
-  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+  add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 
 end
