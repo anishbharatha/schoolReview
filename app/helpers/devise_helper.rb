@@ -12,8 +12,6 @@ module DeviseHelper
 
   def send_email
     # As a hash
-    logger.debug 'SENDGRID DETAILS ******** '+ENV['SENDGRID_USERNAME']
-    logger.debug ENV['SENDGRID_KEY']
     client = SendGrid::Client.new(api_user: ''+ENV['SENDGRID_USERNAME'], api_key: ''+ENV['SENDGRID_KEY'])
     client.send(SendGrid::Mail.new(to: 'anish.bharata@gmail.com', from: 'iReviewSchool@tester.in',
                                    subject: 'Signed In Alert', text: 'Hi there! User Signed In: '+User.current.public_name.to_s,
