@@ -21,6 +21,6 @@ module SchoolReview
     # config.i18n.default_locale = :de
 
     # For coffee scripts, javascripts
-    config.assets.enabled = true
+    # config.assets.enabled = true
   end
 end
