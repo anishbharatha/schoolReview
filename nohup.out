@@ -164,3 +164,15 @@ Caused by: java.lang.InterruptedException
 [76947108]  ERROR - til.concurrency.QueueProcessor - VM: OpenJDK Server VM 
 [76947108]  ERROR - til.concurrency.QueueProcessor - Vendor: Oracle Corporation 
 [76947108]  ERROR - til.concurrency.QueueProcessor - OS: Linux 
+[  17974]   WARN - ateSettings.impl.UpdateChecker - Failed to load plugin descriptions from: "http://git@github.com:anishbharatha/schoolReview.git" 
+[  32779]   WARN - ution.rmi.RemoteProcessSupport - Exception in thread "main" java.lang.ClassNotFoundException: com.mysql.jdbc.Driver 
+[  32783]   WARN - ution.rmi.RemoteProcessSupport - at java.net.URLClassLoader$1.run(URLClassLoader.java:366) 
+[  32784]   WARN - ution.rmi.RemoteProcessSupport - at java.net.URLClassLoader$1.run(URLClassLoader.java:355) 
+[  32784]   WARN - ution.rmi.RemoteProcessSupport - at java.security.AccessController.doPrivileged(Native Method) 
+[  32784]   WARN - ution.rmi.RemoteProcessSupport - at java.net.URLClassLoader.findClass(URLClassLoader.java:354) 
+[  32784]   WARN - ution.rmi.RemoteProcessSupport - at java.lang.ClassLoader.loadClass(ClassLoader.java:425) 
+[  32784]   WARN - ution.rmi.RemoteProcessSupport - at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:308) 
+[  32784]   WARN - ution.rmi.RemoteProcessSupport - at java.lang.ClassLoader.loadClass(ClassLoader.java:358) 
+[  32784]   WARN - ution.rmi.RemoteProcessSupport - at java.lang.Class.forName0(Native Method) 
+[  32784]   WARN - ution.rmi.RemoteProcessSupport - at java.lang.Class.forName(Class.java:191) 
+[  32784]   WARN - ution.rmi.RemoteProcessSupport - at com.intellij.database.remote.RemoteJdbcServer.main(RemoteJdbcServer.java:15) 
