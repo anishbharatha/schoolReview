@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-ruby '2.1.1'
 
 gem 'recaptcha', :require=> 'recaptcha/rails'
 gem 'bootstrap-sass', '~> 3.3.1'
