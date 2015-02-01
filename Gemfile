@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+ruby '2.1.1'
+
 gem 'recaptcha', :require=> 'recaptcha/rails'
 gem 'bootstrap-sass', '~> 3.3.1'
 gem 'will_paginate', '~> 3.0.7'
@@ -28,6 +30,8 @@ group :development do
 end
 
 group :production do
+  gem 'rails_log_stdout',           github: 'heroku/rails_log_stdout'
+  gem 'rails3_serve_static_assets', github: 'heroku/rails3_serve_static_assets'
   gem 'rails_12factor'
   gem 'unicorn'
   gem 'pg'
