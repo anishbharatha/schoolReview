@@ -6,10 +6,10 @@ SchoolReview::Application.initialize!
 
 ActionMailer::Base.smtp_settings = {
   :address              => 'smtp.sendgrid.net',
-  :domain               => 'https://sheltered-sierra-1264.herokuapp.com',
+  :domain               => 'https://afternoon-temple-3577.herokuapp.com',
   :user_name            => ENV['SENDGRID_USERNAME'],
   :password             => ENV['SENDGRID_KEY'],
   :authentication       => 'plain',
   :enable_starttls_auto => true
 }
-ActionMailer::Base.default_url_options = { host: 'https://sheltered-sierra-1264.herokuapp.com'}
+ActionMailer::Base.default_url_options = { host: 'https://afternoon-temple-3577.herokuapp.com'}
