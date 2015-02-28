@@ -79,13 +79,13 @@ SchoolReview::Application.configure do
   config.log_formatter = ::Logger::Formatter.new
 
   # Default Mailer Host
-  Rails.application.routes.default_url_options[:host] = 'https://sheltered-sierra-1264.herokuapp.com'
-  config.action_mailer.default_url_options = { :host => 'https://vast-bastion-9882.herokuapp.com'}
+  Rails.application.routes.default_url_options[:host] = 'https://afternoon-temple-3577.herokuapp.com'
+  config.action_mailer.default_url_options = { :host => 'https://afternoon-temple-3577.herokuapp.com'}
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     address:              'smtp.sendgrid.net',
     port:                 587,
-    domain:               'https://sheltered-sierra-1264.herokuapp.com',
+    domain:               'https://afternoon-temple-3577.herokuapp.com',
     enable_starttls_auto: true
   }
 end
