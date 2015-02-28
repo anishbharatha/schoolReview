@@ -10,6 +10,7 @@ class EngineController < ApplicationController
   end
 
   def index
+    params.keys.map(&:to_sym)
     @users=(params[:search])?User.where('public_name LIKE ? OR email LIKE ? OR role LIKE ?','%'+params[:search]+'%','%'+params[:search]+'%','%'+params[:search]+'%').paginate(:page => params[:page], :per_page => 10):User.all.paginate(:page => params[:page], :per_page => 10)
     respond_with(@users)
   end
