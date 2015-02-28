@@ -176,3 +176,110 @@ Caused by: java.lang.InterruptedException
 [  32784]   WARN - ution.rmi.RemoteProcessSupport - at java.lang.Class.forName0(Native Method) 
 [  32784]   WARN - ution.rmi.RemoteProcessSupport - at java.lang.Class.forName(Class.java:191) 
 [  32784]   WARN - ution.rmi.RemoteProcessSupport - at com.intellij.database.remote.RemoteJdbcServer.main(RemoteJdbcServer.java:15) 
+[   5977]   WARN - ateSettings.impl.UpdateChecker - Failed to load plugin descriptions from: "http://git@github.com:anishbharatha/schoolReview.git" 
+[  42850]   WARN - ution.rmi.RemoteProcessSupport - Exception in thread "main" java.lang.ClassNotFoundException: com.mysql.jdbc.Driver 
+[  42851]   WARN - ution.rmi.RemoteProcessSupport - at java.net.URLClassLoader$1.run(URLClassLoader.java:366) 
+[  42851]   WARN - ution.rmi.RemoteProcessSupport - at java.net.URLClassLoader$1.run(URLClassLoader.java:355) 
+[  42851]   WARN - ution.rmi.RemoteProcessSupport - at java.security.AccessController.doPrivileged(Native Method) 
+[  42851]   WARN - ution.rmi.RemoteProcessSupport - at java.net.URLClassLoader.findClass(URLClassLoader.java:354) 
+[  42851]   WARN - ution.rmi.RemoteProcessSupport - at java.lang.ClassLoader.loadClass(ClassLoader.java:425) 
+[  42851]   WARN - ution.rmi.RemoteProcessSupport - at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:308) 
+[  42851]   WARN - ution.rmi.RemoteProcessSupport - at java.lang.ClassLoader.loadClass(ClassLoader.java:358) 
+[  42851]   WARN - ution.rmi.RemoteProcessSupport - at java.lang.Class.forName0(Native Method) 
+[  42851]   WARN - ution.rmi.RemoteProcessSupport - at java.lang.Class.forName(Class.java:191) 
+[  42852]   WARN - ution.rmi.RemoteProcessSupport - at com.intellij.database.remote.RemoteJdbcServer.main(RemoteJdbcServer.java:15) 
+[  45330]   WARN - ution.rmi.RemoteProcessSupport - Exception in thread "main" java.lang.ClassNotFoundException: com.mysql.jdbc.Driver 
+[  45331]   WARN - ution.rmi.RemoteProcessSupport - at java.net.URLClassLoader$1.run(URLClassLoader.java:366) 
+[  45331]   WARN - ution.rmi.RemoteProcessSupport - at java.net.URLClassLoader$1.run(URLClassLoader.java:355) 
+[  45331]   WARN - ution.rmi.RemoteProcessSupport - at java.security.AccessController.doPrivileged(Native Method) 
+[  45332]   WARN - ution.rmi.RemoteProcessSupport - at java.net.URLClassLoader.findClass(URLClassLoader.java:354) 
+[  45332]   WARN - ution.rmi.RemoteProcessSupport - at java.lang.ClassLoader.loadClass(ClassLoader.java:425) 
+[  45332]   WARN - ution.rmi.RemoteProcessSupport - at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:308) 
+[  45332]   WARN - ution.rmi.RemoteProcessSupport - at java.lang.ClassLoader.loadClass(ClassLoader.java:358) 
+[  45332]   WARN - ution.rmi.RemoteProcessSupport - at java.lang.Class.forName0(Native Method) 
+[  45332]   WARN - ution.rmi.RemoteProcessSupport - at java.lang.Class.forName(Class.java:191) 
+[  45332]   WARN - ution.rmi.RemoteProcessSupport - at com.intellij.database.remote.RemoteJdbcServer.main(RemoteJdbcServer.java:15) 
+[  95678]   WARN - nsight.nativerb.StubsGenRunner - Error running stubs generator for kgio: /home/anish/.rvm/gems/ruby-2.1.1/gems/rdoc-4.2.0/lib/rdoc/markup/to_joined_paragraph.rb:9:in `<top (required)>': uninitialized constant RDoc::Markup::Formatter (NameError)
+	from /home/anish/.rvm/rubies/ruby-2.1.1/lib/ruby/site_ruby/2.1.0/rubygems/core_ext/kernel_require.rb:54:in `require'
+	from /home/anish/.rvm/rubies/ruby-2.1.1/lib/ruby/site_ruby/2.1.0/rubygems/core_ext/kernel_require.rb:54:in `require'
+	from /home/anish/.rvm/gems/ruby-2.1.1/gems/rdoc-4.2.0/lib/rdoc/markdown.rb:530:in `<class:Markdown>'
+	from /home/anish/.rvm/gems/ruby-2.1.1/gems/rdoc-4.2.0/lib/rdoc/markdown.rb:169:in `<top (required)>'
+	from /home/anish/.rvm/gems/ruby-2.1.1/gems/rdoc-4.2.0/lib/rdoc/text.rb:28:in `<module:Text>'
+	from /home/anish/.rvm/gems/ruby-2.1.1/gems/rdoc-4.2.0/lib/rdoc/text.rb:21:in `<top (required)>'
+	from /home/anish/.rvm/rubies/ruby-2.1.1/lib/ruby/site_ruby/2.1.0/rubygems/core_ext/kernel_require.rb:69:in `require'
+	from /home/anish/.rvm/rubies/ruby-2.1.1/lib/ruby/site_ruby/2.1.0/rubygems/core_ext/kernel_require.rb:69:in `require'
+	from /home/anish/RubyMine-7.0/rb/stubsgen/gems/gems/rdoc-3.9.4/lib/rdoc/code_object.rb:2:in `<top (required)>'
+	from /home/anish/.rvm/gems/ruby-2.1.1/gems/rdoc-4.2.0/lib/rdoc/generator/markup.rb:59:in `<top (required)>'
+	from /home/anish/.rvm/rubies/ruby-2.1.1/lib/ruby/site_ruby/2.1.0/rubygems/core_ext/kernel_require.rb:69:in `require'
+	from /home/anish/.rvm/rubies/ruby-2.1.1/lib/ruby/site_ruby/2.1.0/rubygems/core_ext/kernel_require.rb:69:in `require'
+	from /home/anish/.rvm/gems/ruby-2.1.1/gems/rdoc-4.2.0/lib/rdoc/generator/darkfish.rb:6:in `<top (required)>'
+	from /home/anish/.rvm/rubies/ruby-2.1.1/lib/ruby/site_ruby/2.1.0/rubygems/core_ext/kernel_require.rb:69:in `require'
+	from /home/anish/.rvm/rubies/ruby-2.1.1/lib/ruby/site_ruby/2.1.0/rubygems/core_ext/kernel_require.rb:69:in `require'
+	from /home/anish/.rvm/gems/ruby-2.1.1/gems/rdoc-4.2.0/lib/rdoc/rdoc.rb:567:in `<top (required)>'
+	from /home/anish/.rvm/rubies/ruby-2.1.1/lib/ruby/site_ruby/2.1.0/rubygems/core_ext/kernel_require.rb:69:in `require'
+	from /home/anish/.rvm/rubies/ruby-2.1.1/lib/ruby/site_ruby/2.1.0/rubygems/core_ext/kernel_require.rb:69:in `require'
+	from /home/anish/RubyMine-7.0/rb/stubsgen/our_rdoc.rb:3:in `<top (required)>'
+	from /home/anish/.rvm/rubies/ruby-2.1.1/lib/ruby/site_ruby/2.1.0/rubygems/core_ext/kernel_require.rb:121:in `require'
+	from /home/anish/.rvm/rubies/ruby-2.1.1/lib/ruby/site_ruby/2.1.0/rubygems/core_ext/kernel_require.rb:121:in `require'
+	from /home/anish/RubyMine-7.0/rb/stubsgen/gen_stubs.rb:12:in `<main>'
+ 
+[  95942]   WARN - nsight.nativerb.StubsGenRunner - Error running stubs generator for raindrops: /home/anish/.rvm/gems/ruby-2.1.1/gems/rdoc-4.2.0/lib/rdoc/markup/to_joined_paragraph.rb:9:in `<top (required)>': uninitialized constant RDoc::Markup::Formatter (NameError)
+	from /home/anish/.rvm/rubies/ruby-2.1.1/lib/ruby/site_ruby/2.1.0/rubygems/core_ext/kernel_require.rb:54:in `require'
+	from /home/anish/.rvm/rubies/ruby-2.1.1/lib/ruby/site_ruby/2.1.0/rubygems/core_ext/kernel_require.rb:54:in `require'
+	from /home/anish/.rvm/gems/ruby-2.1.1/gems/rdoc-4.2.0/lib/rdoc/markdown.rb:530:in `<class:Markdown>'
+	from /home/anish/.rvm/gems/ruby-2.1.1/gems/rdoc-4.2.0/lib/rdoc/markdown.rb:169:in `<top (required)>'
+	from /home/anish/.rvm/gems/ruby-2.1.1/gems/rdoc-4.2.0/lib/rdoc/text.rb:28:in `<module:Text>'
+	from /home/anish/.rvm/gems/ruby-2.1.1/gems/rdoc-4.2.0/lib/rdoc/text.rb:21:in `<top (required)>'
+	from /home/anish/.rvm/rubies/ruby-2.1.1/lib/ruby/site_ruby/2.1.0/rubygems/core_ext/kernel_require.rb:69:in `require'
+	from /home/anish/.rvm/rubies/ruby-2.1.1/lib/ruby/site_ruby/2.1.0/rubygems/core_ext/kernel_require.rb:69:in `require'
+	from /home/anish/RubyMine-7.0/rb/stubsgen/gems/gems/rdoc-3.9.4/lib/rdoc/code_object.rb:2:in `<top (required)>'
+	from /home/anish/.rvm/gems/ruby-2.1.1/gems/rdoc-4.2.0/lib/rdoc/generator/markup.rb:59:in `<top (required)>'
+	from /home/anish/.rvm/rubies/ruby-2.1.1/lib/ruby/site_ruby/2.1.0/rubygems/core_ext/kernel_require.rb:69:in `require'
+	from /home/anish/.rvm/rubies/ruby-2.1.1/lib/ruby/site_ruby/2.1.0/rubygems/core_ext/kernel_require.rb:69:in `require'
+	from /home/anish/.rvm/gems/ruby-2.1.1/gems/rdoc-4.2.0/lib/rdoc/generator/darkfish.rb:6:in `<top (required)>'
+	from /home/anish/.rvm/rubies/ruby-2.1.1/lib/ruby/site_ruby/2.1.0/rubygems/core_ext/kernel_require.rb:69:in `require'
+	from /home/anish/.rvm/rubies/ruby-2.1.1/lib/ruby/site_ruby/2.1.0/rubygems/core_ext/kernel_require.rb:69:in `require'
+	from /home/anish/.rvm/gems/ruby-2.1.1/gems/rdoc-4.2.0/lib/rdoc/rdoc.rb:567:in `<top (required)>'
+	from /home/anish/.rvm/rubies/ruby-2.1.1/lib/ruby/site_ruby/2.1.0/rubygems/core_ext/kernel_require.rb:69:in `require'
+	from /home/anish/.rvm/rubies/ruby-2.1.1/lib/ruby/site_ruby/2.1.0/rubygems/core_ext/kernel_require.rb:69:in `require'
+	from /home/anish/RubyMine-7.0/rb/stubsgen/our_rdoc.rb:3:in `<top (required)>'
+	from /home/anish/.rvm/rubies/ruby-2.1.1/lib/ruby/site_ruby/2.1.0/rubygems/core_ext/kernel_require.rb:121:in `require'
+	from /home/anish/.rvm/rubies/ruby-2.1.1/lib/ruby/site_ruby/2.1.0/rubygems/core_ext/kernel_require.rb:121:in `require'
+	from /home/anish/RubyMine-7.0/rb/stubsgen/gen_stubs.rb:12:in `<main>'
+ 
+[  96199]   WARN - nsight.nativerb.StubsGenRunner - Error running stubs generator for unicorn: /home/anish/.rvm/gems/ruby-2.1.1/gems/rdoc-4.2.0/lib/rdoc/markup/to_joined_paragraph.rb:9:in `<top (required)>': uninitialized constant RDoc::Markup::Formatter (NameError)
+	from /home/anish/.rvm/rubies/ruby-2.1.1/lib/ruby/site_ruby/2.1.0/rubygems/core_ext/kernel_require.rb:54:in `require'
+	from /home/anish/.rvm/rubies/ruby-2.1.1/lib/ruby/site_ruby/2.1.0/rubygems/core_ext/kernel_require.rb:54:in `require'
+	from /home/anish/.rvm/gems/ruby-2.1.1/gems/rdoc-4.2.0/lib/rdoc/markdown.rb:530:in `<class:Markdown>'
+	from /home/anish/.rvm/gems/ruby-2.1.1/gems/rdoc-4.2.0/lib/rdoc/markdown.rb:169:in `<top (required)>'
+	from /home/anish/.rvm/gems/ruby-2.1.1/gems/rdoc-4.2.0/lib/rdoc/text.rb:28:in `<module:Text>'
+	from /home/anish/.rvm/gems/ruby-2.1.1/gems/rdoc-4.2.0/lib/rdoc/text.rb:21:in `<top (required)>'
+	from /home/anish/.rvm/rubies/ruby-2.1.1/lib/ruby/site_ruby/2.1.0/rubygems/core_ext/kernel_require.rb:69:in `require'
+	from /home/anish/.rvm/rubies/ruby-2.1.1/lib/ruby/site_ruby/2.1.0/rubygems/core_ext/kernel_require.rb:69:in `require'
+	from /home/anish/RubyMine-7.0/rb/stubsgen/gems/gems/rdoc-3.9.4/lib/rdoc/code_object.rb:2:in `<top (required)>'
+	from /home/anish/.rvm/gems/ruby-2.1.1/gems/rdoc-4.2.0/lib/rdoc/generator/markup.rb:59:in `<top (required)>'
+	from /home/anish/.rvm/rubies/ruby-2.1.1/lib/ruby/site_ruby/2.1.0/rubygems/core_ext/kernel_require.rb:69:in `require'
+	from /home/anish/.rvm/rubies/ruby-2.1.1/lib/ruby/site_ruby/2.1.0/rubygems/core_ext/kernel_require.rb:69:in `require'
+	from /home/anish/.rvm/gems/ruby-2.1.1/gems/rdoc-4.2.0/lib/rdoc/generator/darkfish.rb:6:in `<top (required)>'
+	from /home/anish/.rvm/rubies/ruby-2.1.1/lib/ruby/site_ruby/2.1.0/rubygems/core_ext/kernel_require.rb:69:in `require'
+	from /home/anish/.rvm/rubies/ruby-2.1.1/lib/ruby/site_ruby/2.1.0/rubygems/core_ext/kernel_require.rb:69:in `require'
+	from /home/anish/.rvm/gems/ruby-2.1.1/gems/rdoc-4.2.0/lib/rdoc/rdoc.rb:567:in `<top (required)>'
+	from /home/anish/.rvm/rubies/ruby-2.1.1/lib/ruby/site_ruby/2.1.0/rubygems/core_ext/kernel_require.rb:69:in `require'
+	from /home/anish/.rvm/rubies/ruby-2.1.1/lib/ruby/site_ruby/2.1.0/rubygems/core_ext/kernel_require.rb:69:in `require'
+	from /home/anish/RubyMine-7.0/rb/stubsgen/our_rdoc.rb:3:in `<top (required)>'
+	from /home/anish/.rvm/rubies/ruby-2.1.1/lib/ruby/site_ruby/2.1.0/rubygems/core_ext/kernel_require.rb:121:in `require'
+	from /home/anish/.rvm/rubies/ruby-2.1.1/lib/ruby/site_ruby/2.1.0/rubygems/core_ext/kernel_require.rb:121:in `require'
+	from /home/anish/RubyMine-7.0/rb/stubsgen/gen_stubs.rb:12:in `<main>'
+ 
+[2036734]   WARN - ution.rmi.RemoteProcessSupport - Exception in thread "main" 
+[2036735]   WARN - ution.rmi.RemoteProcessSupport - java.lang.ClassNotFoundException: com.mysql.jdbc.Driver 
+[2036735]   WARN - ution.rmi.RemoteProcessSupport - at java.net.URLClassLoader$1.run(URLClassLoader.java:366) 
+[2036735]   WARN - ution.rmi.RemoteProcessSupport - at java.net.URLClassLoader$1.run(URLClassLoader.java:355) 
+[2036735]   WARN - ution.rmi.RemoteProcessSupport - at java.security.AccessController.doPrivileged(Native Method) 
+[2036735]   WARN - ution.rmi.RemoteProcessSupport - at java.net.URLClassLoader.findClass(URLClassLoader.java:354) 
+[2036735]   WARN - ution.rmi.RemoteProcessSupport - at java.lang.ClassLoader.loadClass(ClassLoader.java:425) 
+[2036735]   WARN - ution.rmi.RemoteProcessSupport - at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:308) 
+[2036735]   WARN - ution.rmi.RemoteProcessSupport - at java.lang.ClassLoader.loadClass(ClassLoader.java:358) 
+[2036736]   WARN - ution.rmi.RemoteProcessSupport - at java.lang.Class.forName0(Native Method) 
+[2036736]   WARN - ution.rmi.RemoteProcessSupport - at java.lang.Class.forName(Class.java:191) 
+[2036736]   WARN - ution.rmi.RemoteProcessSupport - at com.intellij.database.remote.RemoteJdbcServer.main(RemoteJdbcServer.java:15) 

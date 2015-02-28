@@ -20,14 +20,14 @@ SchoolReview::Application.configure do
   # config.action_dispatch.rack_cache = true
 
   # Disable Rails's static asset server (Apache or nginx will already do this).
-  config.serve_static_assets = false
+  config.serve_static_assets = true
 
   # Compress JavaScripts and CSS.
   config.assets.js_compressor = :uglifier
   # config.assets.css_compressor = :sass
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
-  config.assets.compile = false
+  config.assets.compile = true
 
   # Generate digests for assets URLs.
   config.assets.digest = true
@@ -79,7 +79,13 @@ SchoolReview::Application.configure do
   config.log_formatter = ::Logger::Formatter.new
 
   # Default Mailer Host
-  Rails.application.routes.default_url_options[:host] = 'http://ec2-54-67-101-0.us-west-1.compute.amazonaws.com'
-  # To serve static assets
-  config.serve_static_assets  = true
+  Rails.application.routes.default_url_options[:host] = 'https://sheltered-sierra-1264.herokuapp.com'
+  config.action_mailer.default_url_options = { :host => 'https://vast-bastion-9882.herokuapp.com'}
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address:              'smtp.sendgrid.net',
+    port:                 587,
+    domain:               'https://sheltered-sierra-1264.herokuapp.com',
+    enable_starttls_auto: true
+  }
 end
