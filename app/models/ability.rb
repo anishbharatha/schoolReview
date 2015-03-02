@@ -11,13 +11,14 @@ class Ability
     elsif user.role=='author'
       can [:index, :show], School
       cannot [:new, :edit, :update, :destroy], School
-      can [:index,:show, :create], Review
+      can [:index, :show, :create], Review
       cannot [:approve, :edit, :destroy], Review
-      cannot :index, EngineController
+      cannot [:index, :developerPage], EngineController
       #cannot [:index, :show, :destroy], User
     else
       can :new, User
-    # Define abilities for the passed in user here. For example:
+      cannot [:index, :developerPage], EngineController
+      # Define abilities for the passed in user here. For example:
     #
     #   user ||= User.new # guest user (not logged in)
     #   if user.admin?

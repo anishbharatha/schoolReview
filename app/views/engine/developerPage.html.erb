@@ -1,0 +1,17 @@
+<div class='form form-inline'>
+  <%=image_tag('dev_zone.png', :alt => 'this is dev Zone!*', :height => 90)%>
+
+  <h3 class='form-group'>Hello <%=@current_user.full_name.split.map(&:capitalize)*''%>,</h3>
+<%if can? :developerPage, Engine%>
+    <p>Here's some stats for you</p>
+    <p>Total # Reviews <%=@reviews_count%></p>
+    <p>Total # Schools <%=@schools_count%></p>
+    <p>Total # Users   <%=@users_count%></p>
+    <p>Environment: <%=Rails.env%></p>
+    <p>HTTP User Agent: <%=@user_agent%></p>
+    <p>User IP Address: <%=@remote_ip%></p>
+    <p>Location: <%=@user_agent.inspect%></p>
+    <kbd>Recent Logs</kbd>
+    <pre style='background-color: #090909; color: #2c9d0d;' class='pre-scrollable'><%=@logs.html_safe%></pre>
+<%end%>
+</div>
