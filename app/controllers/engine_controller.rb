@@ -1,5 +1,5 @@
 class EngineController < ApplicationController
-  before_action :set_engine, only: [:show, :edit, :update]
+#  before_action :authenticate_user!
   respond_to :html, :json
   require 'will_paginate/array'
 
@@ -42,4 +42,16 @@ class EngineController < ApplicationController
   def update
   end
 
+  def developerPage
+    @reviews_count  = Review.all.count
+    @schools_count  = School.all.count
+    @users_count    = User.all.count
+    @user_agent     = request.env['HTTP_USER_AGENT']
+    @remote_ip      = request.remote_ip
+    if Rails.env=='production'
+      @logs = File.read("#{Rails.root.to_s}/log/production.log")
+    else
+      @logs = File.read("#{Rails.root.to_s}/log/development.log")
+    end
+  end
 end

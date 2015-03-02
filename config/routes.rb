@@ -18,4 +18,5 @@ SchoolReview::Application.routes.draw do
   get 'sent_messagebox' =>'message_boxes#sent'
   get 'trash_messagebox'=>'message_boxes#trash'
   get 'move_to_trash'   =>'message_boxes#moveToTrash'
+  get 'developer'       =>'engine#developerPage'
 end

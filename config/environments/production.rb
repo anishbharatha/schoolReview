@@ -87,5 +87,6 @@ SchoolReview::Application.configure do
     port:                 587,
     domain:               'https://afternoon-temple-3577.herokuapp.com',
     enable_starttls_auto: true
+
   }
 end
