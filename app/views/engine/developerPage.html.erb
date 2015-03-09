@@ -1,17 +1,22 @@
 <div class='form form-inline'>
-  <%=image_tag('dev_zone.png', :alt => 'this is dev Zone!*', :height => 90)%>
-
-  <h3 class='form-group'>Hello <%=@current_user.full_name.split.map(&:capitalize)*''%>,</h3>
 <%if can? :developerPage, Engine%>
-    <p>Here's some stats for you</p>
-    <p>Total # Reviews <%=@reviews_count%></p>
-    <p>Total # Schools <%=@schools_count%></p>
-    <p>Total # Users   <%=@users_count%></p>
-    <p>Environment: <%=Rails.env%></p>
-    <p>HTTP User Agent: <%=@user_agent%></p>
-    <p>User IP Address: <%=@remote_ip%></p>
-    <p>Location: <%=@user_agent.inspect%></p>
-    <kbd>Recent Logs</kbd>
-    <pre style='background-color: #090909; color: #2c9d0d;' class='pre-scrollable'><%=@logs.html_safe%></pre>
+    <%=image_tag('dev_zone.png', :alt => 'this is dev Zone!*', :height => 90)%>
+    <h3 class='form-group'>Hello <%=@current_user.full_name.split.map(&:capitalize)*''%>,</h3>
+
+      <ul class='nav nav-tabs' role='tablist' id='myTab'>
+        <li role='presentation' class='active'><a href='#stats' aria-controls='stats' role='tab' data-toggle='tab'>Stats</a></li>
+        <li role='presentation'><a href='#envir' aria-controls='envir' role='tab' data-toggle='tab'>Environment</a></li>
+        <li role='presentation'><a href='#audit' aria-controls='audit' role='tab' data-toggle='tab'>Audit</a></li>
+        <li role='presentation'><a href='#hlogs' aria-controls='hlogs' role='tab' data-toggle='tab'>Heroku Logs</a></li>
+        <li role='presentation'><a href='#confi' aria-controls='confi' role='tab' data-toggle='tab'>Configs</a></li>
+      </ul>
+
+      <div class='tab-content'>
+        <%=render 'engine/developerPages/devPage_statistics'%>
+        <%=render 'engine/developerPages/devPage_audits'%>
+        <%=render 'engine/developerPages/devPage_environment'%>
+        <%=render 'engine/developerPages/devPage_heroku_logs'%>
+        <%=render 'engine/developerPages/devPage_configuration'%>
+      </div>
 <%end%>
 </div>

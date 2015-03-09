@@ -1,0 +1,27 @@
+<h2>Talk to us</h2>
+<div class='col-sm-5'>
+<%= form_tag(contact_us_path, :method=>'post', :multipart => true) do %>
+    <div class='form-group'>
+        <label class='control-label'>Your Email Id</label>
+        <%= email_field_tag 'sender_email_id', nil, class:'form-control',
+        :placeholder=>'Email Id', autocomplete: 'off', autofocus: true, :required=>true %>
+    </div>
+    <div class='form-group'>
+        <label class='control-label'>Subject</label>
+        <%= text_field_tag 'subject',nil, class:'form-control',
+        :placeholder=>'Subject Line', autocomplete: 'off',:required=>true %>
+    </div>
+    <div class='form-group'>
+        <label class='control-label'>Message</label>
+        <%= text_area_tag 'message',nil,class:'form-control',
+        :placeholder=>'Message',:required=>true %>
+    </div>
+      <%#= recaptcha_tags%>
+    <div class='form-group'>
+        <div class='col-sm-12 g-recaptcha' data-sitekey="6LfpQgATAAAAAHKPM2Z2cTNvHL3N_wUkLF0usUoC"></div>
+    </div>
+    <div class='form-group'>
+      <%= submit_tag 'Send Message', :class=>'form-control btn btn-md btn-primary' %>
+    </div>
+<% end %>
+</div>

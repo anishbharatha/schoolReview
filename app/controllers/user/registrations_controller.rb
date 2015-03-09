@@ -2,6 +2,7 @@ class User::RegistrationsController < Devise::RegistrationsController
  before_filter :configure_sign_up_params, only: [:create]
  before_filter :configure_account_update_params, only: [:update]
 
+
   # GET /resource/sign_up
    def new
      super
@@ -11,6 +12,7 @@ class User::RegistrationsController < Devise::RegistrationsController
    def create
      build_resource(sign_up_params)
      resource.role='author'
+     resource.email_notif=true
      resource_saved = resource.save
      yield resource if block_given?
      if resource_saved
@@ -35,9 +37,11 @@ class User::RegistrationsController < Devise::RegistrationsController
 
   # GET /resource/edit
    def edit
-     super
-     logger.debug '****EDIT****'
-     logger.debug resource.inspect.to_s
+     #super # need to research if it's good
+     @schools = School.where(user_id:3)
+     @reviews = Review.where(user_id:3)
+     @audits  = Audit.all
+     respond_with @schools, @reviews, @audits
    end
 
   # PUT /resource
@@ -57,7 +61,10 @@ class User::RegistrationsController < Devise::RegistrationsController
   # removing all OAuth session data.
    def cancel
      super
-   end
+     end
+
+  def termsToAgree
+  end
 
    protected
 

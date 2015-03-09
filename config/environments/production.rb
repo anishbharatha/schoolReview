@@ -89,4 +89,8 @@ SchoolReview::Application.configure do
     enable_starttls_auto: true
 
   }
+
+  # Google captcha configuration
+  RECAPTCHA_PUBLIC_KEY  = ENV['RECAPTCHA_SITE_KEY']
+  RECAPTCHA_PRIVATE_KEY = ENV['RECAPTCHA_SECRET_KEY']
 end

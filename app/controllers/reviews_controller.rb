@@ -26,7 +26,6 @@ class ReviewsController < ApplicationController
   def create
     @review = Review.new(review_params)
     @review.user_id = current_user.id
-    logger.debug '*****REVIEW CREATE '+review_params.to_s
     @review.save
     respond_with(@review)
   end

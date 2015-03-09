@@ -1,5 +1,6 @@
 SchoolReview::Application.routes.draw do
 
+  resources :engine
   resources :reviews
   resources :schools
   resources :recipients
@@ -8,7 +9,6 @@ SchoolReview::Application.routes.draw do
   #this line lets the app implement devise-created ctrls rather than devise(gem) ctrls themselves
   devise_for :users, controllers:{sessions:'user/sessions',registrations:'user/registrations',passwords:'user/passwords',confirmations:'user/confirmations'}
 
-  resources :engine
   root 'engine#landingPage'
   get 'approve_review'  =>'reviews#approve'
   get 'ban_user'        =>'engine#banUser'
@@ -19,4 +19,8 @@ SchoolReview::Application.routes.draw do
   get 'trash_messagebox'=>'message_boxes#trash'
   get 'move_to_trash'   =>'message_boxes#moveToTrash'
   get 'developer'       =>'engine#developerPage'
+  match '/contact_us'   =>'engine#contactUs', as: :contact_us, via: [:get, :post]
+  match '/app_settings' =>'engine#appSettings', as: :app_settings, via: [:get, :post]
+  get '/terms', :to=>redirect('/termsToAgree.html')
+
 end
