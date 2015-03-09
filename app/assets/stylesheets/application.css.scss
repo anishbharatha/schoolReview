@@ -10,13 +10,19 @@
   font-weight: 400;
   src: local('Sigmar One'), local('SigmarOne'), url(navbar-font.woff) format('woff');
 }
+
+@font-face {
+  font-family: 'Lobster';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Lobster'), local('Lobster-Regular'), url('/assets/fonts/lobster-regular.woff') format('woff');
+}
+
 .header-row{
   width: 100%;
   background-color: #464646;
-  #background-color: #333333;
   opacity: 1;
   padding-bottom: 10px;
-  padding-right: 10px;
 }
 .header-pipes{
   font-family: 'Sigmar One', cursive;

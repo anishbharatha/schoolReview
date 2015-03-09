@@ -2,7 +2,7 @@
   <%= render 'devise/shared/links'%>
 
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name),
-        html: {class: 'form-horizontal pull-right', style:'margin-top:20px'}) do |f| %>
+        html: {onsubmit:'return validateTermsAgreement();',class: 'form-horizontal pull-right', style:'margin-top:20px'}) do |f| %>
 
     <%= devise_error_messages! %>
 
@@ -10,7 +10,7 @@
       <div class='col-sm-offset-1 col-sm-4'>
         <label class='control-label'>Public Name</label>
         <%= f.text_field :public_name,  :class=>'form-control', :placeholder=>'Public Name',
-                     autocomplete: 'off', autofocus: true, :required=>true %>
+                     autocomplete: 'off', autofocus: true, :required=>true, :value=>'' %>
       </div>
 
       <div class='col-sm-offset-1 col-sm-4'>
@@ -47,22 +47,38 @@
 
     <div class='form-group'>
       <div class="col-sm-offset-1 col-sm-8">
-        <div class="checkbox">
-          <label><input type="checkbox"> I Read & Agree on terms</label>
-        </div>
+        <label><input type='checkbox' id='termsCheckbox'>I Read & Agree on <%=link_to 'terms', terms_path, :target=>'_blank'%></label>
       </div>
       <div class="col-sm-offset-1 col-sm-8 g-recaptcha" data-sitekey="6LfpQgATAAAAAHKPM2Z2cTNvHL3N_wUkLF0usUoC"></div>
 
       <div class='col-sm-offset-1 col-sm-9'>
-          <%= f.submit 'Sign Up', :class=>'btn btn-lg btn-success', :style=>'width:100%'%>
+        <%= f.submit 'Sign Up', :class=>'btn btn-lg btn-success', :style=>'width:100%'%>
       </div>
     </div>
+      <%if Rails.env=='development'%>
+        <input type='button' value="Generate Values for testing" onclick="genValues();"/>
+      <%end%>
   <%end%>
 
 </div>
 
-<style>
-  .sign-up{
-      #background-color: #95b19e;
+<script>
+  function validateTermsAgreement(){
+      if($('input:checkbox:not(:checked)').size()>0){
+          alert('You need to accept terms to proceed.')
+          return false;
+      }
+      else return true;
   }
-</style>
+
+    function genValues(){
+        var randNum = Math.floor((Math.random()*100)+1);
+        document.getElementById('user_public_name').value='pName'+randNum;
+        document.getElementById('user_full_name').value='fName'+randNum;
+        document.getElementById('user_email').value='email@email.c'+randNum;
+        document.getElementById('user_password').value='password'+randNum;
+        document.getElementById('user_password_confirmation').value=document.getElementById('user_password').value
+        document.getElementById('termsCheckbox').checked=true;
+    }
+
+</script>

@@ -11,10 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150111092123) do
+ActiveRecord::Schema.define(version: 20150308231704) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "attachments", force: true do |t|
+    t.string   "model"
+    t.integer  "model_id"
+    t.string   "type"
+    t.string   "content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "audits", force: true do |t|
     t.integer  "subject_user_id"
@@ -36,6 +45,15 @@ ActiveRecord::Schema.define(version: 20150111092123) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "config_audits", force: true do |t|
+    t.integer  "environment"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "config_audits", ["user_id"], name: "index_config_audits_on_user_id", using: :btree
 
   create_table "contact_us", force: true do |t|
     t.string   "sender_email"
@@ -212,6 +230,7 @@ ActiveRecord::Schema.define(version: 20150111092123) do
     t.string   "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
+    t.boolean  "email_notif"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
