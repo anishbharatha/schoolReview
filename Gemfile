@@ -5,6 +5,7 @@ gem 'bootstrap-sass', '~> 3.3.3'
 gem 'will_paginate', '~> 3.0.7'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'sass-rails', '~> 4.0.0'
+gem 'searchkick', '~>0.8.7'
 gem 'uglifier', '>= 1.3.0'
 gem 'imagemagick-binaries'
 gem 'autoprefixer-rails'
@@ -27,10 +28,7 @@ group :development do
   gem 'sqlite3'
 end
 
-# group :production do  gem 'unicorn' end
-
 group :doc do
-  # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
 end
 

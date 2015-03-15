@@ -5,8 +5,11 @@ class SchoolsController < ApplicationController
   require 'will_paginate/array'
 
   def index
-    @schools = School.search(params[:search]).paginate(:page => params[:page], :per_page => 5)
-    respond_with(@schools)
+    if params[:query].present?
+      @schools = School.search(params[:query], page: params[:page], per_page: 5)
+    else
+      @schools = School.all.paginate(page: params[:page], per_page: 5)
+    end
   end
 
   def show
