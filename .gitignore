@@ -32,3 +32,4 @@ pickle-email-*.html
 bower.json
 # config/database.yml
 .idea*
+config/secretkeys.yml
