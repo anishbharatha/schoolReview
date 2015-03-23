@@ -1,99 +1,23 @@
-<%= link_to'Back', :back%>
-<span class="glyphicon glyphicon-asterisk text-danger" aria-hidden="true"></span>
-<small class='text-danger'>Current Password required to make any changes.</small>
+<div role='row tabpanel'>
+  <ul class='col-sm-2 nav nav-stacked' role='tablist'>
+    <li role='presentation' class='active'>
+      <a href='#personal' aria-controls='personal' role='tab' data-toggle='tab'> Personal</a>
+    </li>
+    <li role='presentation'>
+      <a href='#contributions' aria-controls='contributions' role='tab' data-toggle='tab'>Contributions</a>
+    </li>
+    <li role='presentation'>
+      <a href='#password' aria-controls='password' role='tab' data-toggle='tab'>Password</a>
+    </li>
+    <li role='presentation'>
+      <a href='#settings' aria-controls='settings' role='tab' data-toggle='tab'>Account</a>
+    </li>
+  </ul>
 
-<div class='row'>
-  <div class='col-md-6'>
-    <div class="panel panel-primary">
-      <div class='panel-heading'>Edit <%= resource_name.to_s.humanize %> Profile</div>
-      <div class="panel-body">
-        <%= form_for(resource, as: resource_name, url: registration_path(resource_name),
-                     html: {class: 'form-horizontal', method: :put }) do |f| %>
-            <%= devise_error_messages! %>
-          <div class='form-group col-sm-6'>
-            <%= f.label :public_name %><br />
-            <%= f.text_field :public_name, :class=>'form-control', :placeholder=>'Public name'%>
-          </div>
-          <div class='form-group col-sm-6 pull-right'>
-            <%= f.label :full_name %><br />
-            <%= f.text_field :full_name, :class=>'form-control', :placeholder=>'Full name'%>
-          </div>
-          <div class='form-group col-sm-6'>
-            <%= f.label :email %><br />
-            <%= f.email_field :email, :class=>'form-control', :readonly=>true%>
-          </div>
-          <div class='form-group col-sm-6 pull-right'>
-            <span class="glyphicon glyphicon-asterisk text-danger" aria-hidden="true"></span>
-            <%= f.label :current_password %><br/>
-            <%= f.password_field :current_password, :class=>'form-control', :placeholder=>'Current Password',autocomplete:'off'%>
-          </div>
-            <div class='form-group col-sm-6'>
-              <%= f.label :email_notifications %>
-              <%= f.check_box :email_notif, :class=>'form-control'%>
-            </div>
-
-            <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-                <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-            <% end %>
-
-              <div class='form-groupcol-md-12'>
-                <%= f.submit 'Update my info',:class=>'btn btn-success'%>
-              </div>
-        <% end %>
-      </div>
-    </div>
-  </div><!--END OF EDIT USER PROFILE-->
-
-  <div class='col-md-6'>
-    <div class="panel panel-primary">
-      <div class='panel-heading'>Change Password</div>
-
-      <div class="panel-body">
-        <%= form_for(resource, as: resource_name, url: registration_path(resource_name),
-                 html: {class: 'form-horizontal', method: :put }) do |f| %>
-        <%= devise_error_messages! %>
-        <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-            <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-        <% end %>
-
-          <div class='form-group col-md-6'>
-            <%= f.label :new_password %><br />
-            <%= f.password_field :password, :class=>'form-control', :placeholder=>'New Password',autocomplete: "off" %>
-          </div>
-          <div class='form-group col-md-6 pull-right'>
-            <%= f.label :repeat_new_password%><br />
-            <%= f.password_field :password_confirmation, :class=>'form-control', :placeholder=>'Repeat New Password', autocomplete: "off" %>
-          </div>
-
-          <div class='form-group col-md-6'>
-              <span class="glyphicon glyphicon-asterisk text-danger" aria-hidden="true"></span>
-              <%= f.label :current_password %><br/>
-              <%= f.password_field :current_password, :class=>'form-control', :placeholder=>'Current Password',autocomplete:'off'%>
-          </div>
-          <div class='form-group col-md-6 pull-right'>
-            <%= f.submit 'Change Password',:class=>'btn btn-md btn-warning form-control'%>
-          </div>
-        <% end %>
-    </div>
-  </div>
-  </div><!--END OF CHANGE PASSWORD-->
-</div>
-<div class="panel panel-primary">
-  <div class='panel-heading'>Contributions & Activities</div>
-  <div class="panel-body">
-    <p>Schools:    <%=@schools.size%></p>
-    <p>Reviews:    <%=@reviews.size%></p>
+  <div class='col-sm-9 tab-content'>
+    <div role='tabpanel' class='tab-pane active' id='personal'><%= render 'personalPanel'%></div>
+    <div role='tabpanel' class='tab-pane' id='contributions'><%= render 'contributionsBlock'%></div>
+    <div role='tabpanel' class='tab-pane' id='password'><%= render 'passwordBlock'%></div>
+    <div role='tabpanel' class='tab-pane' id='settings'><%= render 'accountBlock'%></div>
   </div>
 </div>
-
-<div class='col-md-3 pull-right'>
-    <div class="panel panel-danger">
-        <div class='panel-heading'>Cancel my account</div>
-        <div class="panel-body">
-          <p>Do not want to be member anymore ? <%=button_to 'Cancel my account', registration_path(resource_name),
-                                   data: { confirm:'Are you sure?'}, method: :delete,:class=>'btn btn-danger'%></p>
-        </div>
-    </div>
-</div>
-
-

@@ -1,0 +1,32 @@
+<div class='row header-row'>
+  <div class='col-md-5' style='margin-top: 10px;'>
+    <%=link_to "#{image_tag('title-logo-1.png', :alt=>'Django!*')}".html_safe, root_path%>
+  </div>
+
+  <%if user_signed_in?%>
+      <div class='col-md-6'>
+        <div class='row col-md-12 text-right'>
+          <p class='text-danger'>Logged in as <strong><%= current_user.email %></strong>.
+            <%if Rails.env!='production'%>
+                <%= link_to 'Mailbox', message_boxes_path, :class => 'navbar-link' %> |
+            <%end%>
+            <%= link_to 'Profile', edit_user_registration_path, :class => 'navbar-link' %> |
+            <%= link_to 'Logout', destroy_user_session_path, method: :delete, :class => 'navbar-link'%>
+          </p>
+        </div>
+        <div class='row col-md-12 text-right header-pipes'>
+          <%= link_to 'Home', root_path, :class => 'navbar-link header-menu'%>&nbsp;&nbsp;
+          <%= link_to 'Schools', schools_path, :class => 'navbar-link header-menu'%>&nbsp;&nbsp;
+          <%= link_to 'Reviews', reviews_path, :class => 'navbar-link header-menu'%>&nbsp;&nbsp;
+          <%if can? :index, @Engine%>
+              <%= link_to 'Users', engine_index_path, :class => 'navbar-link header-menu'%>
+          <%end%>
+        </div>
+      </div>
+  <%else%>
+      <div class='col-md-6 text-right'>
+        <%=link_to '<button type="button" class="btn btn-primary btn-xs">Login</button>'.html_safe, root_path+'users/sign_in'%>
+        <%=link_to '<button type="button" class="btn btn-success btn-xs">Sign up</button>'.html_safe, root_path+'users/sign_up'%>
+      </div>
+  <%end%>
+</div><!--END OF HEADER ROW-->
