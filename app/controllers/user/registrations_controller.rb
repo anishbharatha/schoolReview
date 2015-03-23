@@ -2,6 +2,7 @@ class User::RegistrationsController < Devise::RegistrationsController
  before_filter :configure_sign_up_params, only: [:create]
  before_filter :configure_account_update_params, only: [:update]
 
+ @current_user  = User.current
 
   # GET /resource/sign_up
    def new
@@ -38,9 +39,9 @@ class User::RegistrationsController < Devise::RegistrationsController
   # GET /resource/edit
    def edit
      #super # need to research if it's good
-     @schools = School.where(user_id:3)
-     @reviews = Review.where(user_id:3)
-     @audits  = Audit.all
+     @schools = School.where(user_id:@current_user.id)
+     @reviews = Review.where(user_id:@current_user.id)
+     @audits  = Audit.where(created_by_id: @current_user.id)
      respond_with @schools, @reviews, @audits
    end
 

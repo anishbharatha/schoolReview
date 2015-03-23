@@ -4,9 +4,8 @@
   <% if params[:query].present?%>
       <h3>search results for <i>"<%=params[:query]%>"</i></h3>
   <%else%>
-      <h3 class='col-md-10'>Listing all schools</h3>
-  <%end%>
-  <h5 class='col-md-2 pull-right'>Showing: <%=@schools.size%>/<%=@schools.total_entries%></h5>
+      <h3>Listing all schools [Showing: <%=@schools.size%>/<%=@schools.total_entries%>] </h3>
+<%end%>
 </div>
 
 <table  class='table table-hover'>

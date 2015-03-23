@@ -1,0 +1,62 @@
+<%@reviews.each do |review| %>
+    <div class='row'>
+      <div class='col-md-10'>
+        <h3><span class="glyphicon glyphicon-comment" aria-hidden="true"></span>&nbsp;<%=review.headline%></h3>
+      </div>
+      <div class='col-md-2'>
+        <h2><%=(review.faculty_expertise+review.faculty_communication+review.cost_worth+review.transport+
+                review.library+review.satisfaction_rate+review.infrastructure+review.sports+review.research)/9%>
+        </h2>
+      </div>
+    </div>
+
+    <div class='row'>
+      <div class='col-md-4'>
+        <i>Faculty Expertise: </i>
+        <input type="hidden" class="rating" value="<%=review.faculty_expertise/2%>" readonly="readonly" data-fractions="2"/>
+      </div>
+      <div class='col-md-4'>
+        <i>Faculty Communication: </i>
+        <input type="hidden" class="rating" value="<%=review.faculty_communication/2%>" readonly="readonly" data-fractions="2"/>
+      </div>
+      <div class='col-md-4'>
+        <i>Cost Worth: </i>
+        <input type="hidden" class="rating" value="<%=review.cost_worth/2%>" readonly="readonly" data-fractions="2"/>
+      </div>
+    </div>
+
+    <div class='row'>
+      <div class='col-md-4'>
+        <i>Transport: </i>
+        <input type="hidden" class="rating" value="<%=review.transport/2%>" readonly="readonly" data-fractions="2"/>
+      </div>
+      <div class='col-md-4'>
+        <i>Library: </i>
+        <input type="hidden" class="rating" value="<%=review.library/2%>" readonly="readonly" data-fractions="2"/>
+      </div>
+      <div class='col-md-4'>
+        <i>Satisfaction Rate: </i>
+        <input type="hidden" class="rating" value="<%=review.satisfaction_rate/2%>" readonly="readonly" data-fractions="2"/>
+      </div>
+    </div>
+
+    <div class='row'>
+      <div class='col-md-4'>
+        <i>Infrastructure: </i>
+        <input type="hidden" class="rating" value="<%=review.infrastructure/2%>" readonly="readonly" data-fractions="2"/>
+      </div>
+      <div class='col-md-4'>
+        <i>Sports: </i>
+        <input type="hidden" class="rating" value="<%=review.sports/2%>" readonly="readonly" data-fractions="2"/>
+      </div>
+      <div class='col-md-4'>
+        <i>Research: </i>
+        <input type="hidden" class="rating" value="<%=review.research/2%>" readonly="readonly" data-fractions="2"/>
+      </div>
+    </div>
+
+    <div class='row col-md-10'>
+      <small class='pull-right'>By <i><%=review.user.public_name%></i> on <i><%=distance_of_time_in_words_to_now(review.created_at)%> ago</i></small>
+    </div>
+    <hr>
+<%end%>
