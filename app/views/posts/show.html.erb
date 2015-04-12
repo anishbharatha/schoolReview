@@ -1,0 +1,92 @@
+<%= link_to 'Back', posts_path, class:'btn btn-xs btn-default' %>
+
+<p id="notice"><%= notice %></p>
+
+<%if @post.post_type_id.to_i=='1'.to_i %>
+  <h3><%= @post.title %></h3>
+<%end%>
+<p class='text-justify'>
+  <i><%=@post.body.html_safe%></i>
+  <small class='pull-right'>-by <%= @post.user.public_name %>, <%=distance_of_time_in_words_to_now(@post.created_at)%> ago</small>
+</p>
+
+<p>Related to <%=link_to @post.school.name.to_s, @post.school%>.</p>
+<p class='pull-right'>
+  <a data-toggle='collapse' href="#<%=@post.id%>" aria-expanded='false' aria-controls='collapseExample' class='btn btn-xs btn-success'>Respond now</a>
+  <%if can? :edit, @post%><%=link_to 'Edit', edit_post_path(@post), class:'btn btn-xs btn-warning' %><%end%>
+  <%if can? :destroy, @post%>
+      <%=link_to 'Destroy', @post, method: :delete, data: { confirm: 'Are you sure?' }, class:'btn btn-xs btn-danger'%>
+  <%end%>
+</p>
+
+<b><%=pluralize(@children.count, 'Response')%></b>
+<hr class='style-eight'/>
+
+<% @children.each_with_index do |child, index|%>
+    <p class='text-justify'>
+      <%=child.body.html_safe%>
+      <small>-by <%=child.user.public_name%>, <%=distance_of_time_in_words_to_now(child.created_at)%> ago</small>
+
+      <p class='pull-right'>
+        <%if can? :edit, @post%><%= link_to 'Edit', edit_post_path(child), class:'btn btn-xs btn-warning'%><%end%>
+        <%if can? :destroy, @post%>
+            <%=link_to 'Destroy', child, method: :delete, data: { confirm: 'Are you sure?' }, class:'btn btn-xs btn-danger'%>
+        <%end%>
+      </p>
+    </p>
+    <hr style='height:1px; background: #6f8476;'/>
+<%end%>
+
+<div class='collapse' id="<%=@post.id%>"><br/>
+  <div class='well'>
+    <!--START OF REPLY POST BLOCK-->
+    <%= form_for(@new_post, html: {class: 'form-horizontal'}) do |f| %>
+        <% if @new_post.errors.any? %>
+            <div id='error_explanation'>
+              <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+              <ul>
+                <% @new_post.errors.full_messages.each do |msg| %>
+                    <li><%= msg %></li>
+                <%end%>
+              </ul>
+            </div>
+        <%end%>
+
+        <div class='form-group'>
+          <div class='col-xs-10'><b>Your response</b><br/>
+            <%=f.cktext_area :body%>
+            <%#= f.text_area :body, :class=>'form-control input-md', autofocus: 'true'%>
+          </div>
+        </div>
+        <i>Authored by <%=@post.user.public_name%></i>
+        <%= f.hidden_field :post_type_id, value:'2'%>
+        <%= f.hidden_field :parent_id, value:@post.id%>
+        <%= f.hidden_field :school_id, value:@post.school.id%>
+
+        <div class='form-group'>
+          <div class='col-xs-4'><%= f.submit 'Post my response',:class=>'btn btn-success'%></div>
+        </div>
+    <% end %>
+    <!--END OF REPLY POST BLOCK-->
+  </div>
+</div>
+
+<style>
+    hr.style-eight {
+        padding: 0;
+        border: none;
+        border-top: medium double #333;
+        color: #333;
+        text-align: center;
+    }
+    hr.style-eight:after {
+        content: "§";
+        display: inline-block;
+        position: relative;
+        top: -0.7em;
+        font-size: 1.5em;
+        padding: 0 0.25em;
+        background: white;
+    }
+</style>

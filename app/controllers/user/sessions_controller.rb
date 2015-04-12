@@ -10,7 +10,6 @@ class User::SessionsController < Devise::SessionsController
   # POST /resource/sign_in
    def create
      super
-     send_email
    end
 
   # DELETE /resource/sign_out

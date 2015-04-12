@@ -7,9 +7,47 @@ class ApplicationController < ActionController::Base
   #before_action :authenticate_user!
   before_action :configure_devise_permitted_parameters, if: :devise_controller?
   before_filter :set_current_user
+  before_action :set_states
 
   def set_current_user
     User.current = current_user
+  end
+
+  def set_states
+    @states = Hash.new
+    @states = {
+      'AP' => 'Andhra Pradesh',
+      'AR'=>'Arunachal Pradesh',
+      'AS'=>'Assam',
+      'BR'=>'Bihar',
+      'CG'=>'Chandigarh',
+      'CH'=>'Chhattisgarh',
+      'DL'=>'Delhi',
+      'GA'=>'Goa',
+      'GJ'=>'Gujarat',
+      'HR'=>'Haryana',
+      'HP'=>'Himachal Pradesh',
+      'JK'=>'Jammu and Kashmir',
+      'JH'=>'Jharkand',
+      'KA'=>'Karnataka',
+      'KL'=>'Kerala',
+      'MP'=>'Madhya Pradesh',
+      'MH'=>'Maharashtra',
+      'MN'=>'Manipur',
+      'ML'=>'Meghalaya',
+      'MZ'=>'Mizoram',
+      'NL'=> 'Nagaland',
+      'OD'=>'Odisha',
+      'PB'=>'Punjab',
+      'RJ'=>'Rajasthan',
+      'SK'=>'Sikkim',
+      'TN'=>'Tamilnadu',
+      'TS'=>'Telangana',
+      'TR'=>'Tripura',
+      'UP'=>'Uttar Pradesh',
+      'UK'=>'Uttarakhand',
+      'WB'=>'West Bengal'
+    }
   end
 
   #Below methods are to override the same methods in devise gem so it supports new fields in user model

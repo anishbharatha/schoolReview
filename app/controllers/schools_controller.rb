@@ -1,5 +1,6 @@
 class SchoolsController < ApplicationController
   before_action :set_school, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate_user!
   load_and_authorize_resource
   respond_to :html
   require 'will_paginate/array'
@@ -14,6 +15,8 @@ class SchoolsController < ApplicationController
 
   def show
     @reviews = Review.where(:school_id => @school.id)
+    @posts  = Post.where(:school_id => @school.id)
+    @new_post = Post.new
     respond_with(@school)
   end
 

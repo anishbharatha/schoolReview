@@ -1,4 +1,5 @@
-<div class='row'><h1 class='col-md-10'>Listing reviews</h1> <h3 class='col-md-2 pull-right'>Count: <%=@reviews.count%></h3></div>
+<h3>Listing all reviews [Showing: <%=@reviews.size%>/<%=@reviews.total_entries%>] </h3>
+
 <small>Click on the individual headline to see comments.</small>
 <table class='table table-condensed table-hover' style='border-collapse: collapse'>
   <thead>
@@ -44,8 +45,7 @@
     <%end%>
   </tbody>
 </table>
-
-<br>
+<br/>
 
 <%= link_to 'New Review', new_review_path %>
 

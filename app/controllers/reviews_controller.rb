@@ -4,12 +4,11 @@ class ReviewsController < ApplicationController
   respond_to :html
 
   def index
-    @reviews = Review.all.order(:is_approved)
+    @reviews = Review.all.order(:is_approved).paginate(page: params[:page], per_page: 5)
     respond_with(@reviews)
   end
 
   def show
-
     respond_with(@review)
   end
 
