@@ -14,6 +14,9 @@ class Ability
       can [:index, :show, :create], Review
       cannot [:approve, :edit, :destroy], Review
       cannot [:index, :developerPage], EngineController
+      can [:index, :show, :create], Post
+      cannot [:edit, :destroy], Post
+      cannot [:read, :create, :destroy], Ckeditor
       #cannot [:index, :show, :destroy], User
     else
       can :new, User

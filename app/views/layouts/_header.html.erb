@@ -19,12 +19,15 @@
           <%= link_to 'Schools', schools_path, :class => 'navbar-link header-menu'%>&nbsp;&nbsp;
           <%= link_to 'Reviews', reviews_path, :class => 'navbar-link header-menu'%>&nbsp;&nbsp;
           <%if can? :index, @Engine%>
-              <%= link_to 'Users', engine_index_path, :class => 'navbar-link header-menu'%>
+            <%= link_to 'Users', engine_index_path, :class => 'navbar-link header-menu'%>&nbsp;
+          <%end%>
+          <%if can? :index, Post%>
+            <%=link_to 'Forum', posts_path, :class=>'navbar-link header-menu'%>
           <%end%>
         </div>
       </div>
   <%else%>
-      <div class='col-md-6 text-right'>
+      <div class='col-md-5 text-right'>
         <%=link_to '<button type="button" class="btn btn-primary btn-xs">Login</button>'.html_safe, root_path+'users/sign_in'%>
         <%=link_to '<button type="button" class="btn btn-success btn-xs">Sign up</button>'.html_safe, root_path+'users/sign_up'%>
       </div>
