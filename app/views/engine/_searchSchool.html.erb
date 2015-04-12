@@ -1,9 +1,7 @@
 <%= form_tag schools_path, :method=>'get', :class=>'form-inline', :style=>'margin-bottom:5px;' do |f|%>
+      <%=text_field_tag :query, params[:query], class:'form-control input-sm',
+              required:'true', autocomplete: 'off', placeholder:'Type in school, college, city'%>
 
-    <%=text_field_tag :query, params[:query], class:'form-control input-sm',
-              required:'true', autocomplete: 'off',
-              placeholder:'Type in school, college, city'%>
-    <div class='form-group btn-group-sm'>
-        <%=submit_tag :'Search', :name=>nil, :class=>'btn btn-success'%>
-    </div>
+    <%=submit_tag :'Search', :name=>nil, :class=>'btn btn-lg btn-success'%>
+
 <%end%>

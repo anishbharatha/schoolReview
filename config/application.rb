@@ -23,6 +23,6 @@ module SchoolReview
     # For coffee scripts, javascripts
     # config.assets.enabled = true
     ActionMailer::Base.delivery_method = :smtp
-
+    #Rails.application.config.precompile += %w( ckeditor/* )
   end
 end

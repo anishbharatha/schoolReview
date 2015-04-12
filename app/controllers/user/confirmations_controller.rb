@@ -1,9 +1,6 @@
 class User::ConfirmationsController < Devise::ConfirmationsController
   # GET /resource/confirmation/new
   def new
-    sendgrid_api = YAML.load_file("#{Rails.root.to_s}/config/secretkeys.yml")[Rails.env]
-    # As a hash
-    client = SendGrid::Client.new(api_user: ''+sendgrid_api['sendgrid_api']['username'], api_key: ''+sendgrid_api['sendgrid_api']['key'])
     super
   end
 

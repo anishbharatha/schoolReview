@@ -1,23 +1,23 @@
 <h4>Contributions & Activities</h4>
 
 <strong>Schools:</strong>
-<p>You created/modified <%=@schools.size%> school(s).</p>
+<p>You created/modified <%=pluralize(@schools.size, 'school')%>.</p>
 <ul>
   <% @schools.each do |school|%>
-    <li><%=school.name%>, <%=school.address%>. On <%=distance_of_time_in_words_to_now(school.created_at)%>.</li>
+    <li><%=link_to school.name, school%>, <%=school.address%>. On <%=distance_of_time_in_words_to_now(school.created_at)%>.</li>
   <%end%>
 </ul>
 
 <strong>Reviews:</strong>
-<p>You created/modified <%=@reviews.size%> review(s).</p>
+<p>You created/modified <%=pluralize(@reviews.size, 'review')%>.</p>
 <ul>
   <% @reviews.each do |review|%>
-    <li><%=review.headline%> >> <%=review.school.name%>. On <%=distance_of_time_in_words_to_now(review.created_at)%>.</li>
+    <li><%=link_to review.headline, review%> >> <%=link_to review.school.name, review.school%>. On <%=distance_of_time_in_words_to_now(review.created_at)%>.</li>
   <%end%>
 </ul>
 
 <strong>Rules Enforcement:</strong>
-<p>You enforced the forum rules <%=@audits.size%> time(s)</p>
+<p>You enforced the forum rules <%=pluralize(@audits.size, 'time')%>.</p>
 <ul>
   <%@audits.each do |audit|%>
       <li><%=audit.operation%>. On <%=distance_of_time_in_words_to_now(audit.created_at)%>.</li>
