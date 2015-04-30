@@ -1,0 +1,41 @@
+<nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-brand-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">
+        <%=link_to "#{image_tag('title-logo-1.png', size: '294x47',  alt:'Django!*')}".html_safe, root_path%>
+      </a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="navbar-brand-collapse">
+      <ul class="nav navbar-nav navbar-right">
+        <li><%=render 'searchSchool'%></li>
+        <%if user_signed_in?%>
+            <%if Rails.env!='production'%>
+                <li><%= link_to 'Mailbox', message_boxes_path, :class => 'navbar-link' %></li>
+            <%end%>
+            <li><%= link_to 'Profile', edit_user_registration_path, :class => 'navbar-link' %></li>
+            <li><%= link_to 'Logout', destroy_user_session_path, method: :delete, :class => 'navbar-link'%></li>
+            <li><%= link_to 'Home', root_path %></li>
+            <li><%= link_to 'Schools', schools_path, :class => 'navbar-link header-menu'%>&nbsp;&nbsp;</li>
+            <li><%= link_to 'Reviews', reviews_path, :class => 'navbar-link header-menu'%>&nbsp;&nbsp;</li>
+            <%if can? :index, @Engine%>
+                <li><%= link_to 'Users', engine_index_path, :class => 'navbar-link header-menu'%>&nbsp;</li>
+            <%end%>
+            <%if can? :index, Post%>
+                <li><%=link_to 'Forum', posts_path, :class=>'navbar-link header-menu'%></li>
+            <%end%>
+        <%else%>
+            <li><%= link_to 'Login', new_user_session_path %></li>
+            <li><%=link_to 'Signup', new_user_registration_path %></li>
+        <%end%>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>

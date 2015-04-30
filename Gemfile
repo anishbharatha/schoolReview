@@ -25,7 +25,7 @@ gem 'rmagick'
 gem 'pg'
 gem 'omniauth'
 gem 'omniauth-google'
-
+gem 'foreigner'
 group :development do
   gem 'sqlite3'
 end

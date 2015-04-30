@@ -1,7 +1,7 @@
-<%= form_tag schools_path, :method=>'get', :class=>'form-inline', :style=>'margin-bottom:5px;' do |f|%>
+<%# check if this form can be setup properly in a navbar instead of using the padding-top %>
+<%= form_tag schools_path, :method=>'get', :class=>'form-inline', :style=>'padding-top:7px;' do |f|%>
       <%=text_field_tag :query, params[:query], class:'form-control input-sm',
               required:'true', autocomplete: 'off', placeholder:'Type in school, college, city'%>
 
-    <%=submit_tag :'Search', :name=>nil, :class=>'btn btn-lg btn-success'%>
-
+    <%=submit_tag :'Search', :name=>nil, :class=>'btn btn-success'%>
 <%end%>
