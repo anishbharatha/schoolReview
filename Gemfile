@@ -26,6 +26,8 @@ gem 'pg'
 gem 'omniauth'
 gem 'omniauth-google'
 gem 'foreigner'
+gem 'simple_form'
+
 group :development do
   gem 'sqlite3'
 end

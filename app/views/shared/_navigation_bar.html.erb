@@ -9,13 +9,13 @@
         <span class="icon-bar"></span>
       </button>
       <a class="navbar-brand" href="/">
-        <%=link_to "#{image_tag('title-logo-1.png', size: '294x47',  alt:'Django!*')}".html_safe, root_path%>
+        <%=link_to "#{image_tag('title-logo-1.png', alt:'Django!*')}".html_safe, root_path%>
       </a>
     </div>
 
     <div class="collapse navbar-collapse" id="navbar-brand-collapse">
       <ul class="nav navbar-nav navbar-right">
-        <li><%=render 'searchSchool'%></li>
+        <li><%=render 'shared/searchSchool'%></li>
         <%if user_signed_in?%>
             <%if Rails.env!='production'%>
                 <li><%= link_to 'Mailbox', message_boxes_path, :class => 'navbar-link' %></li>

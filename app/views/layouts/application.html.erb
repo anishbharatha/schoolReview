@@ -1,6 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>SchoolReview</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application','data-turbolinks-track'=> true %>
@@ -16,33 +19,30 @@
 <body>
 <%= render 'shared/navigation_bar' %>
 <div class="main-container" class="container-fluid">
-  <div class="container container-fluid">
-    <div class="row">
-      <div class="container">
-        <% if flash[:success] %>
-            <p class="alert alert-success"><%= flash[:success] %></p>
-        <% end %>
-        <% if flash[:alert] %>
-            <p class="alert alert-danger"><%= flash[:alert] %></p>
-        <% end %>
-      </div>
-
-      <marquee class="text-danger">
-        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-        Application is going through alpha/beta testing.
-      </marquee>
-
-      <%if not user_signed_in?%>
-          <h4 class='row' id='app_desc'>Your reviews & opinions help the aspirants select right schools and not fall for their advertisements</h4>
-      <%end%>
-      <%=yield%>
+  <div class="container">
+    <div class="notification-area">
+      <% if flash[:success] %>
+          <p class="alert alert-success"><%= flash[:success] %></p>
+      <% end %>
+      <% if flash[:alert] %>
+          <p class="alert alert-danger"><%= flash[:alert] %></p>
+      <% end %>
     </div>
-  </div> <!-- End of the Container class -->
 
-  <div id="footer">
-    <div class="container text-center">
-      <%= link_to 'Talk to us?', contact_us_path, :class => 'text-warning'%> <p class='text-success'>With <span class="glyphicon glyphicon-heart" aria-hidden="true"></span> for the student community</p>
-    </div>
+    <!--<marquee class="text-danger">-->
+    <!--<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>-->
+    <!--Application is going through alpha/beta testing.-->
+    <!--</marquee>-->
+
+    <!--<%if not user_signed_in?%>-->
+        <!--<h5>Your reviews & opinions help the aspirants select right schools and not fall for their advertisements.</h5>-->
+        <!--<%end%>-->
+    <%=yield%>
+  </div>
+</div>
+<div class="navbar navbar-default navbar-fixed-bottom footer">
+  <div class="container text-center">
+    <%= link_to 'Talk to us?', contact_us_path, :class => 'text-warning'%> <p class='text-success'>With <span class="glyphicon glyphicon-heart" aria-hidden="true"></span> for the student community</p>
   </div>
 </div>
 </body>
