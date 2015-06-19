@@ -28,8 +28,25 @@ gem 'omniauth-google'
 gem 'foreigner'
 gem 'simple_form'
 
-group :development do
+group :development, :test do
+  gem 'rspec-rails'
+  gem 'rspec-mocks'
+  gem 'rspec-activemodel-mocks'
+  gem 'rspec-collection_matchers'
+  gem 'rspec-its'
+  gem 'pry-rails'
+  gem 'pry-remote'
   gem 'sqlite3'
+end
+
+group :test do
+  gem 'capybara-webkit'
+  gem 'shoulda-matchers', require: false
+  gem 'capybara'
+  gem 'launchy'
+  gem 'cucumber'
+  gem 'cucumber-rails', require: false
+  gem 'database_cleaner'
 end
 
 group :doc do

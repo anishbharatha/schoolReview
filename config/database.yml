@@ -8,7 +8,7 @@ development:
   <<: *default
   database: schoolReview_dev
 
-test:
+test: &test
   <<: *default
   database: schoolReview_test
 
@@ -42,3 +42,6 @@ test:
 #  password: bharatha
 #  host: localhost
 #  port: 5432
+
+cucumber:
+  <<: *test
