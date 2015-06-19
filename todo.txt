@@ -1,0 +1,4 @@
+1. dockerize the app
+2. add tests
+3. cleanup UI
+4. mess with the captcha to fit to the new UI
