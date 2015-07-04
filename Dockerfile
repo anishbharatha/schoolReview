@@ -1,25 +1,8 @@
- FROM ruby:2.1.5
-# throw errors if Gemfile has been modified since Gemfile.lock
-RUN bundle config –global frozen 1
-
-RUN mkdir -p /usr/src/app
-WORKDIR /usr/src/app
-
-ONBUILD COPY Gemfile /usr/src/app/
-ONBUILD COPY Gemfile.lock /usr/src/app/
-ONBUILD RUN bundle install
-
-ONBUILD COPY . /usr/src/app
-
-RUN apt-get update && \
-apt-get install -y libpq-dev imagemagick libmagickwand-dev && \
-apt-get install -y nodejs --no-install-recommends && \
-rm -rf /var/lib/apt/lists/*
-RUN apt-get update && \
-apt-get install -y \
-mysql-client postgresql-client \
-sqlite3 --no-install-recommends && \
-rm -rf /var/lib/apt/lists/*
-
-EXPOSE 3000
-CMD ["rails", "server"]
+FROM ruby:2.2.0
+MAINTAINER Srinivas Gumdelli <srinivasgumdelli@gmail.com>
+RUN apt-get update -qq && apt-get install -y build-essential libpq-dev
+RUN mkdir /myapp
+WORKDIR /myapp
+ADD Gemfile /myapp/Gemfile
+RUN bundle install
+ADD . /myapp

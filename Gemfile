@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
-gem 'recaptcha', :require=> 'recaptcha/rails'
+gem 'recaptcha', require: 'recaptcha/rails'
+gem 'therubyracer', platforms: :ruby
 gem 'bootstrap-sass', '~> 3.3.3'
 gem 'will_paginate', '~> 3.0.7'
 gem 'coffee-rails', '~> 4.0.0'
