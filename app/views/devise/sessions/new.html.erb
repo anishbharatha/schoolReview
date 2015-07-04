@@ -1,20 +1,11 @@
-<%= form_for(resource, as: resource_name, url: session_path(resource_name),
-             html: {class: 'form-inline pull-right', style:'margin-top:20px'}) do |f| %>
-  <div class='row'>
-    <div class='form-group input-group-sm'>
-        <%= f.email_field :email, :class=>'form-control', :placeholder=>'Enter Email',
-                          :required=>true, autofocus:true%><br/>
-    </div>
-    <div class='form-group input-group-sm'>
-        <%= f.password_field :password, :class=>'form-control', :placeholder=>'Password',
-                             :required=>true, autocomplete: 'off'%><br/>
-    </div>
-
-    <div class='form-group btn-group-sm'>
-      <%= f.submit 'Log in', :class=>'btn btn-success btn-group-sm'%>
-    </div>
-  </div>
-    <%=render 'devise/shared/links'%>
-
+<%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:class => 'form-signin panel' }) do |f| %>
+    <h4 class="form-signin-heading">Please signin to write reviews.</h4>
+    <label class='control-label'>Email</label>
+    <%= f.email_field :email, :class=>'form-control', :placeholder=>'Enter Email',
+                      :required=>true, autofocus:true%><br/>
+    <label class='control-label'>Password</label>
+    <%= f.password_field :password, :class=>'form-control', :placeholder=>'Password',
+                         :required=>true, autocomplete: 'off'%><br/>
+    <%= f.submit 'Log in', :class=>'btn btn-lg btn-block btn-primary'%>
 <% end %>
 

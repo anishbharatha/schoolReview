@@ -2,43 +2,27 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "custom-css";
+@import "sticky-footer-navbar";
 
-//Styles for header-row
-@font-face {
-  font-family: 'Sigmar One';
-  font-style: normal;
-  font-weight: 400;
-  src: local('Sigmar One'), local('SigmarOne'), url(navbar-font.woff) format('woff');
+body {
+  background: #eee;
 }
 
-@font-face {
-  font-family: 'Lobster';
-  font-style: normal;
-  font-weight: 400;
-  src: local('Lobster'), local('Lobster-Regular'), url('/assets/fonts/lobster-regular.woff') format('woff');
-}
-
-.header-row{
-  background-color: #464646;
-  opacity: 1;
+.g-recaptcha {
   padding-bottom: 10px;
-}
-.header-pipes{
-  font-family: 'Sigmar One', cursive;
-  font-size: 15px;
-  color: #ffffff;
-}
-.header-menu{
-  font-family: 'Sigmar One', cursive;
-  font-size: 20px;
-  color: #ffffff;
-}
-.header-menu:hover{
-  color: #ffffff;
-  text-decoration: none;
-  border-bottom: 4px solid #ffcc00;
+  margin: -10px;
+  transform:scale(0.77);
+  transform-origin:0;-webkit-transform:scale(0.77);
+  transform:scale(0.77);-webkit-transform-origin:0 0;
+  transform-origin:0 0;
 }
 
-* {
-  font-family: 'Ubuntu';
+.footer {
+  background: #eee;
 }
+
+.notification-area{
+  max-width: 70%;
+  margin: 0 auto;
+}
+

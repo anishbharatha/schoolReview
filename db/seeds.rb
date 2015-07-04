@@ -24,3 +24,8 @@ School.find_by_name('Delhi University') || School.create(
   estd:       '1922'
 )
 
+User.find_by_unconfirmed_email_with_errors('srinivasgumdelli@gmail.com') || User.create(
+ email: 'tester@gmail.com',
+ password: 'tester',
+ password_confirmation: 'tester'
+)

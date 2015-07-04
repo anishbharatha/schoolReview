@@ -37,15 +37,6 @@ ActiveRecord::Schema.define(version: 20150404160143) do
   add_index "audits", ["created_by_id"], name: "index_audits_on_created_by_id", using: :btree
   add_index "audits", ["subject_user_id"], name: "index_audits_on_subject_user_id", using: :btree
 
-  create_table "average_caches", force: true do |t|
-    t.integer  "rater_id"
-    t.integer  "rateable_id"
-    t.string   "rateable_type"
-    t.float    "avg",           null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "ckeditor_assets", force: true do |t|
     t.string   "data_file_name",               null: false
     t.string   "data_content_type"
@@ -61,23 +52,6 @@ ActiveRecord::Schema.define(version: 20150404160143) do
 
   add_index "ckeditor_assets", ["assetable_type", "assetable_id"], name: "idx_ckeditor_assetable", using: :btree
   add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], name: "idx_ckeditor_assetable_type", using: :btree
-
-  create_table "config_audits", force: true do |t|
-    t.integer  "environment"
-    t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "config_audits", ["user_id"], name: "index_config_audits_on_user_id", using: :btree
-
-  create_table "contact_us", force: true do |t|
-    t.string   "sender_email"
-    t.text     "message"
-    t.boolean  "is_acknowledged"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
 
   create_table "mailboxer_conversation_opt_outs", force: true do |t|
     t.integer "unsubscriber_id"
@@ -142,14 +116,6 @@ ActiveRecord::Schema.define(version: 20150404160143) do
     t.datetime "updated_at"
   end
 
-  create_table "overall_averages", force: true do |t|
-    t.integer  "rateable_id"
-    t.string   "rateable_type"
-    t.float    "overall_avg",   null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "posts", force: true do |t|
     t.integer  "post_type_id"
     t.integer  "parent_id"
@@ -164,31 +130,6 @@ ActiveRecord::Schema.define(version: 20150404160143) do
   add_index "posts", ["school_id"], name: "index_posts_on_school_id", using: :btree
   add_index "posts", ["user_id"], name: "index_posts_on_user_id", using: :btree
 
-  create_table "rates", force: true do |t|
-    t.integer  "rater_id"
-    t.integer  "rateable_id"
-    t.string   "rateable_type"
-    t.float    "stars",         null: false
-    t.string   "dimension"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "rates", ["rateable_id", "rateable_type"], name: "index_rates_on_rateable_id_and_rateable_type", using: :btree
-  add_index "rates", ["rater_id"], name: "index_rates_on_rater_id", using: :btree
-
-  create_table "rating_caches", force: true do |t|
-    t.integer  "cacheable_id"
-    t.string   "cacheable_type"
-    t.float    "avg",            null: false
-    t.integer  "qty",            null: false
-    t.string   "dimension"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "rating_caches", ["cacheable_id", "cacheable_type"], name: "index_rating_caches_on_cacheable_id_and_cacheable_type", using: :btree
-
   create_table "recipients", force: true do |t|
     t.integer  "message_id"
     t.integer  "user_id"
@@ -202,15 +143,15 @@ ActiveRecord::Schema.define(version: 20150404160143) do
   add_index "recipients", ["message_box_id"], name: "index_recipients_on_message_box_id", using: :btree
 
   create_table "reviews", force: true do |t|
-    t.decimal  "faculty_expertise",     precision: 10, scale: 0
-    t.decimal  "faculty_communication", precision: 10, scale: 0
-    t.decimal  "cost_worth",            precision: 10, scale: 0
-    t.decimal  "transport",             precision: 10, scale: 0
-    t.decimal  "library",               precision: 10, scale: 0
-    t.decimal  "satisfaction_rate",     precision: 10, scale: 0
-    t.decimal  "infrastructure",        precision: 10, scale: 0
-    t.decimal  "sports",                precision: 10, scale: 0
-    t.decimal  "research",              precision: 10, scale: 0
+    t.decimal  "faculty_expertise"
+    t.decimal  "faculty_communication"
+    t.decimal  "cost_worth"
+    t.decimal  "transport"
+    t.decimal  "library"
+    t.decimal  "satisfaction_rate"
+    t.decimal  "infrastructure"
+    t.decimal  "sports"
+    t.decimal  "research"
     t.string   "any_comments"
     t.boolean  "is_approved"
     t.integer  "user_id"
@@ -235,7 +176,6 @@ ActiveRecord::Schema.define(version: 20150404160143) do
     t.string   "school_logo"
     t.string   "aka"
     t.string   "website"
-    t.date     "estd"
   end
 
   add_index "schools", ["user_id"], name: "index_schools_on_user_id", using: :btree
@@ -246,7 +186,7 @@ ActiveRecord::Schema.define(version: 20150404160143) do
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",          default: 0
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
@@ -256,7 +196,6 @@ ActiveRecord::Schema.define(version: 20150404160143) do
     t.string   "role"
     t.string   "public_name"
     t.string   "full_name"
-    t.date     "dob"
     t.string   "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
@@ -264,7 +203,9 @@ ActiveRecord::Schema.define(version: 20150404160143) do
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
-  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+
+  add_foreign_key "mailboxer_notifications", "mailboxer_conversations", name: "notifications_on_conversation_id", column: "conversation_id"
+
+  add_foreign_key "mailboxer_receipts", "mailboxer_notifications", name: "receipts_on_notification_id", column: "notification_id"
 
 end

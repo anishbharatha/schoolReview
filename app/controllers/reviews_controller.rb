@@ -44,16 +44,18 @@ class ReviewsController < ApplicationController
     @review.update_attribute(:is_approved, true)
     @reviews = Review.all
     respond_with(@reviews) do |format|
-      format.html {redirect_to reviews_url }
+      format.html { redirect_to reviews_url }
     end
   end
 
   private
-    def set_review
-      @review = Review.find(params[:id])
-    end
+  def set_review
+    @review = Review.find(params[:id])
+  end
 
-    def review_params
-      params.require(:review).permit(:headline, :faculty_expertise, :faculty_communication, :cost_worth, :transport, :library, :satisfaction_rate, :infrastructure, :sports, :research, :any_comments, :is_approved, :user_id, :school_id)
-    end
+  def review_params
+    params.require(:review).permit(:headline, :faculty_expertise, :faculty_communication, :cost_worth, :transport,
+                                   :library, :satisfaction_rate, :infrastructure, :sports, :research, :any_comments,
+                                   :is_approved, :user_id, :school_id)
+  end
 end
