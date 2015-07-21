@@ -51,6 +51,6 @@ class SchoolsController < ApplicationController
     end
 
     def school_params
-      params.require(:school).permit(:website, :aka, :name, :address, :city, :category, :state, :user_id, :school_logo, :school_logo_cache, :remove_school_logo, :remote_school_logo_url)
+      params.require(:school).permit(:website, :aka, :name, :address, :city, :category, :state, :user_id, :school_logo, :school_logo_cache, :remove_school_logo, :remote_school_logo_url, :estd)
     end
 end

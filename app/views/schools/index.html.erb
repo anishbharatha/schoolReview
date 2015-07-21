@@ -22,7 +22,7 @@
     <% @schools.each do |school| %>
       <tr>
         <td><%= link_to school.name, school %></td>
-        <td><%=school.address%>,<%=school.city%>, <%=@states[school.state]%></td>
+        <td><%=school.address%>,<%=school.city%>, <%=@states[school.state.upcase]%>.</td>
         <td><%= school.category %></td>
 
         <td><%if can? :edit, @school%><%= link_to '<button type="button" class="btn btn-primary btn-xs">Edit</button>'.html_safe, edit_school_path(school) %><%end%></td>

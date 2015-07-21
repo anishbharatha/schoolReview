@@ -15,8 +15,13 @@
 <%@reviews.each do |review| %>
     <div class='each-review'>
     <div class='row'>
-      <h4><%= review.headline%> >> <%=link_to review.school.name, review.school%></h4></div>
-    <div class='row'>
+      <h4>
+        <i><%=link_to '#'+review.school.name.gsub(/\s+/, ""), review.school%></i>.
+        "<%= review.headline%>"
+      </h4>
+    </div>
+
+      <div class='row'>
       <div class='col-md-1'>
         <p class='rating pull-left'>
         <h2><%=((review.faculty_expertise+review.faculty_communication+
@@ -31,9 +36,9 @@
         <i>Faculty Communica:</i> <%= review.faculty_communication%>&nbsp;
         <i>Cost Worth:</i> <%= review.cost_worth%>&nbsp;
         <i>Transport Facilit:</i> <%= review.transport%>&nbsp;
-        <i>Library: </i> <%= review.library%>&nbsp;
       </div>
       <div class='row col-md-12'>
+        <i>Library: </i> <%= review.library%>&nbsp;
           <i>Satisfaction rate:</i> <%= review.satisfaction_rate%>&nbsp;
           <i>Infrastructure: </i> <%= review.infrastructure%>&nbsp;
           <i>Sports:</i> <%= review.sports%>&nbsp;

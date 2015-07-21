@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150404160143) do
+ActiveRecord::Schema.define(version: 20150721145415) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -202,15 +202,15 @@ ActiveRecord::Schema.define(version: 20150404160143) do
   add_index "recipients", ["message_box_id"], name: "index_recipients_on_message_box_id", using: :btree
 
   create_table "reviews", force: true do |t|
-    t.decimal  "faculty_expertise",     precision: 10, scale: 0
-    t.decimal  "faculty_communication", precision: 10, scale: 0
-    t.decimal  "cost_worth",            precision: 10, scale: 0
-    t.decimal  "transport",             precision: 10, scale: 0
-    t.decimal  "library",               precision: 10, scale: 0
-    t.decimal  "satisfaction_rate",     precision: 10, scale: 0
-    t.decimal  "infrastructure",        precision: 10, scale: 0
-    t.decimal  "sports",                precision: 10, scale: 0
-    t.decimal  "research",              precision: 10, scale: 0
+    t.decimal  "faculty_expertise"
+    t.decimal  "faculty_communication"
+    t.decimal  "cost_worth"
+    t.decimal  "transport"
+    t.decimal  "library"
+    t.decimal  "satisfaction_rate"
+    t.decimal  "infrastructure"
+    t.decimal  "sports"
+    t.decimal  "research"
     t.string   "any_comments"
     t.boolean  "is_approved"
     t.integer  "user_id"
@@ -246,7 +246,7 @@ ActiveRecord::Schema.define(version: 20150404160143) do
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",          default: 0
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
@@ -256,7 +256,6 @@ ActiveRecord::Schema.define(version: 20150404160143) do
     t.string   "role"
     t.string   "public_name"
     t.string   "full_name"
-    t.date     "dob"
     t.string   "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
@@ -264,7 +263,5 @@ ActiveRecord::Schema.define(version: 20150404160143) do
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
-  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
 end

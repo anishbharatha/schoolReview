@@ -24,5 +24,9 @@ module SchoolReview
     # config.assets.enabled = true
     ActionMailer::Base.delivery_method = :smtp
     #Rails.application.config.precompile += %w( ckeditor/* )
+
+    # For handling cancancan errors through Gaffe
+    config.action_dispatch.rescue_responses.merge! 'CanCan::AccessDenied' => :forbidden
+
   end
 end
