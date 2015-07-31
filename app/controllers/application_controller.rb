@@ -8,6 +8,7 @@ class ApplicationController < ActionController::Base
   before_action :configure_devise_permitted_parameters, if: :devise_controller?
   before_filter :set_current_user
   before_action :set_states
+  after_filter  :set_csrf_cookie_for_ng
 
   def set_current_user
     User.current = current_user
@@ -16,39 +17,45 @@ class ApplicationController < ActionController::Base
   def set_states
     @states = Hash.new
     @states = {
-      'AP' => 'Andhra Pradesh',
-      'AR'=>'Arunachal Pradesh',
-      'AS'=>'Assam',
-      'BR'=>'Bihar',
-      'CG'=>'Chandigarh',
-      'CH'=>'Chhattisgarh',
-      'DL'=>'Delhi',
-      'GA'=>'Goa',
-      'GJ'=>'Gujarat',
-      'HR'=>'Haryana',
-      'HP'=>'Himachal Pradesh',
-      'JK'=>'Jammu and Kashmir',
-      'JH'=>'Jharkand',
-      'KA'=>'Karnataka',
-      'KL'=>'Kerala',
-      'MP'=>'Madhya Pradesh',
-      'MH'=>'Maharashtra',
-      'MN'=>'Manipur',
-      'ML'=>'Meghalaya',
-      'MZ'=>'Mizoram',
-      'NL'=> 'Nagaland',
-      'OD'=>'Odisha',
-      'PB'=>'Punjab',
-      'RJ'=>'Rajasthan',
-      'SK'=>'Sikkim',
-      'TN'=>'Tamilnadu',
-      'TS'=>'Telangana',
-      'TR'=>'Tripura',
-      'UP'=>'Uttar Pradesh',
-      'UK'=>'Uttarakhand',
-      'WB'=>'West Bengal'
+        'AP' => 'Andhra Pradesh',
+        'AR'=>'Arunachal Pradesh',
+        'AS'=>'Assam',
+        'BR'=>'Bihar',
+        'CG'=>'Chandigarh',
+        'CH'=>'Chhattisgarh',
+        'DL'=>'Delhi',
+        'GA'=>'Goa',
+        'GJ'=>'Gujarat',
+        'HR'=>'Haryana',
+        'HP'=>'Himachal Pradesh',
+        'JK'=>'Jammu and Kashmir',
+        'JH'=>'Jharkand',
+        'KA'=>'Karnataka',
+        'KL'=>'Kerala',
+        'MP'=>'Madhya Pradesh',
+        'MH'=>'Maharashtra',
+        'MN'=>'Manipur',
+        'ML'=>'Meghalaya',
+        'MZ'=>'Mizoram',
+        'NL'=> 'Nagaland',
+        'OD'=>'Odisha',
+        'PB'=>'Punjab',
+        'RJ'=>'Rajasthan',
+        'SK'=>'Sikkim',
+        'TN'=>'Tamilnadu',
+        'TS'=>'Telangana',
+        'TR'=>'Tripura',
+        'UP'=>'Uttar Pradesh',
+        'UK'=>'Uttarakhand',
+        'WB'=>'West Bengal'
     }
   end
+
+
+  def set_csrf_cookie_for_ng
+    cookies['XSRF-TOKEN'] = form_authenticity_token if protect_against_forgery?
+  end
+
 
   #Below methods are to override the same methods in devise gem so it supports new fields in user model
   protected
@@ -58,13 +65,16 @@ class ApplicationController < ActionController::Base
 
     if params[:action] == 'update'
       devise_parameter_sanitizer.for(:account_update) {
-        |u| u.permit(registration_params << :current_password)
+          |u| u.permit(registration_params << :current_password)
       }
     elsif params[:action] == 'create'
       devise_parameter_sanitizer.for(:sign_up) {
-        |u| u.permit(registration_params)
+          |u| u.permit(registration_params)
       }
     end
   end
 
+  def verified_request?
+    super || form_authenticity_token == request.headers['X-XSRF-TOKEN']
+  end
 end

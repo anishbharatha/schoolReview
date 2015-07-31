@@ -1,38 +1,38 @@
 <%= render 'engine/searchSchool'%>
 
 <% if params[:query].present?%>
-  <h3>search results for <i>"<%=params[:query]%>"</i></h3>
+    <h3>search results for <i>"<%=params[:query]%>"</i></h3>
 <%else%>
-   <h3>Listing all schools [Showing: <%=@schools.size%>/<%=@schools.total_entries%>] </h3>
+    <h3>Listing all schools [Showing: <%=@schools.size%>/<%=@schools.total_entries%>] </h3>
 <%end%>
 
 <table  class='table table-hover'>
   <thead>
-    <tr>
-      <th>Name</th>
-      <th>Address # City # State</th>
-      <th>Category</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
+  <tr>
+    <th>Name</th>
+    <th>Address # City # State</th>
+    <th>Category</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
   </thead>
 
   <tbody>
-    <% @schools.each do |school| %>
+  <% @schools.each do |school| %>
       <tr>
         <td><%= link_to school.name, school %></td>
-        <td><%=school.address%>,<%=school.city%>, <%=@states[school.state.upcase]%>.</td>
+        <td><%=school.address%>,<%=school.city%>, <%=@states[school.state.upcase]%></td>
         <td><%= school.category %></td>
 
         <td><%if can? :edit, @school%><%= link_to '<button type="button" class="btn btn-primary btn-xs">Edit</button>'.html_safe, edit_school_path(school) %><%end%></td>
         <td>
           <%if can? :delete, @school%>
-          <%#    <%= link_to 'Destroy', school, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-xs'%>
+              <%#    <%= link_to 'Destroy', school, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-xs'%>
           <%end%>
         </td>
       </tr>
-    <% end %>
+  <% end %>
   </tbody>
 </table>
 

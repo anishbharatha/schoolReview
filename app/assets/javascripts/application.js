@@ -13,7 +13,10 @@
 //= require jquery
 //= require jquery_ujs
 //= require ckeditor/init
+//= require angular
 // require turbolinks
 // require bootstrap-sprockets
 // require jquery-ui
 // require_tree .
+
+var app = angular.module('studentOpinion', []);

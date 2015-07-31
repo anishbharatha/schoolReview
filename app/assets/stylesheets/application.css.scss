@@ -15,9 +15,15 @@
   font-family: 'Lobster';
   font-style: normal;
   font-weight: 400;
-  src: local('Lobster'), local('Lobster-Regular'), url('/assets/fonts/lobster-regular.woff') format('woff');
+  src: local('Lobster'), local('Lobster-Regular'), url('lobster-regular.woff') format('woff');
 }
 
+@font-face {
+  font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Ubuntu'), local('Ubuntu'), url('ubuntu.woff') format('woff');
+}
 .header-row{
   background-color: #464646;
   opacity: 1;
@@ -36,7 +42,7 @@
 .navbar-nav > li > a.header-menu:hover, .navbar-nav > li > a.dropdown-toggle:hover{
   color: #ccff00;
   text-decoration: none;
-//  border-bottom: 4px solid #ffcc00;
+  //  border-bottom: 4px solid #ffcc00;
 }
 
 * {
@@ -62,4 +68,13 @@
   .body.container{
     margin-top: 80px;
   }
+}
+
+.navbar-nav > li > .dropdown-menu {
+  background-color: #464646;
+}
+
+.dropdown-menu > li > a.navbar-link {
+  color:#ffffff;
+  font-weight: 600;
 }

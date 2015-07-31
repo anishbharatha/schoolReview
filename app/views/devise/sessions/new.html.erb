@@ -1,5 +1,5 @@
 <%= form_for(resource, as: resource_name, url: session_path(resource_name),
-             html: {class: 'form-inline pull-right', style:'margin-top:20px'}) do |f| %>
+             html: {class: 'form-inline', style:'margin-top:20px'}) do |f| %>
   <div class='row'>
     <div class='form-group input-group-sm'>
         <%= f.email_field :email, :class=>'form-control', :placeholder=>'Enter Email',
@@ -14,7 +14,7 @@
       <%= f.submit 'Log in', :class=>'btn btn-success btn-group-sm'%>
     </div>
   </div>
-    <%=render 'devise/shared/links'%>
 
 <% end %>
 
+<%=render 'devise/shared/links'%>

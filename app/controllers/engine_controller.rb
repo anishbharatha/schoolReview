@@ -13,18 +13,15 @@ class EngineController < ApplicationController
   def index
     params.keys.map(&:to_sym)
     @users=(params[:search])?User.where('public_name LIKE ? OR email LIKE ? OR role LIKE ?','%'+params[:search]+'%','%'+params[:search]+'%','%'+params[:search]+'%').paginate(:page => params[:page], :per_page => 10):User.all.paginate(:page => params[:page], :per_page => 10)
-    respond_with(@users)
+    respond_with @users
   end
 
   def updateUserRole
-      #render(:file => File.join(Rails.root, '/422.html'), :status => 403, :layout => false)
-
     @user = User.find(params[:id])
-    @user.update_attribute(:role, params[:role])
-
-    @users = User.all
-    respond_with(@users) do |format|
-      format.html {redirect_to engine_index_path }
+    if @user.update_attribute(:role, params[:role])
+      render :nothing=>true, :status =>'200'
+    else
+      format.json { render json: @user.errors, status: :unprocessable_entity }
     end
   end
 

@@ -1,5 +1,5 @@
 <%=form_for(resource, as: resource_name, url: confirmation_path(resource_name),
-     html: {method: :post, class: 'form-inline pull-right', style:'margin-top:20px'}) do |f| %>
+     html: {method: :post, class: 'form-inline', style:'margin-top:20px'}) do |f| %>
   <%= devise_error_messages! %>
 
     <div class='row'>
@@ -11,8 +11,9 @@
         <%= f.submit 'Resend confirmation instructions', :class=>'btn btn-success btn-group-sm'%>
       </div>
     </div>
-
-    <div class='row'>
-      <%=render 'devise/shared/links'%>
-    </div>
 <%end%>
+
+<div class='row'>
+  <%=render 'devise/shared/links'%>
+</div>
+

@@ -1,74 +1,54 @@
 <%if can? :index, @Engine%>
     <%= form_tag search_users_path, :method=>'get', :class=>'form-inline' do%>
         <div class='form-group'>
-        <%=text_field_tag :search, params[:search], :class=>'form-control input-sm',
-                          :style=>'',:placeholder=>'Type in user public name or email id'%>
+          <%=text_field_tag :search, params[:search], :class=>'form-control input-sm',
+                            :style=>'',:placeholder=>'Type in user public name or email id'%>
         </div>
-          <%=submit_tag :'Search users', :name=>nil, :class=>'btn btn-success'%>
+        <%=submit_tag :'Search users', :name=>nil, :class=>'btn btn-success'%>
     <%end%>
 
-<div class='row'>
-  <h3>Listing users [Showing: <%=@users.size%>/<%=@users.total_entries%>] </h3>
-</div>
+    <div  ng-controller="engineCtrl">
 
-<table class='table table-hover'>
-  <thead>
-  <tr>
-    <th>Public Name</th>
-    <th>Email</th>
-    <th>Author</th>
-    <th>Moderator</th>
-    <th>Admin</th>
-    <th>Restricted</th>
-    <th>Member Since</th>
-    <th></th>
-  </tr>
-  </thead>
+      <%=hidden_field_tag :form_authenticity_token%>
 
-  <tbody>
-  <% @users.each do |user| %>
-      <tr>
+      <div class='row'><h3>Listing users [Showing: <%=@users.size%>/<%=@users.total_entries%>] </h3></div>
 
-        <td><%=user.public_name%></td>
-        <td><%=user.email%></td>
-        <%if user.role=='banned'%>
-            <td colspan='3'>
-              <p class='alert-warning'> <span class="glyphicon glyphicon-warning-sign" aria-hidden="true"></span>
-                User banned.</p>
-            </td>
-            <td><%=link_to '<button type="button" class="btn btn-success btn-xs">Unrestrict</button>'.html_safe,
-                 update_user_role_path(id: user.id, role: 'author'),data: {confirm: 'Are you sure?'}%></td>
+      <div class="row">{{response}}</div>
+      <table class='table table-hover'>
+        <thead>
+        <tr>
+          <th>Public Name</th>
+          <th>Email</th>
+          <th>Author</th>
+          <th>Moderator</th>
+          <th>Admin</th>
+          <th>Restricted</th>
+          <th>Member Since</th>
+          <th></th>
+        </tr>
+        </thead>
 
-        <%elsif user.role=='author'%>
-            <td><span class="glyphicon glyphicon-record" aria-hidden="true"></span></td>
-            <td><%=link_to '<button type="button" class="btn btn-primary btn-xs">Moderator</button>'.html_safe,
-                   update_user_role_path(id: user.id, role: 'moderator'),data: {confirm: 'Are you sure?'}%></td>
-            <td><%=link_to '<button type="button" class="btn btn-warning btn-xs">Admin</button>'.html_safe,
-                   update_user_role_path(id: user.id, role: 'admin'),data: {confirm: 'Are you sure?'}%></td>
-            <td><%=link_to '<button type="button" class="btn btn-danger btn-xs">Restrict/Ban</button>'.html_safe,
-                   update_user_role_path(id: user.id, role: 'banned'),data: {confirm: 'Are you sure?'}%></td>
-        <%elsif user.role=='moderator'%>
-            <td><%=link_to '<button type="button" class="btn btn-info btn-xs">Author</button>'.html_safe,
-                   update_user_role_path(id: user.id, role: 'author'),data: {confirm: 'Are you sure?'}%></td>
-            <td><span class="glyphicon glyphicon-record" aria-hidden="true"></span></td>
-            <td><%=link_to '<button type="button" class="btn btn-warning btn-xs">Admin</button>'.html_safe,
-                   update_user_role_path(id: user.id, role: 'admin'),data: {confirm: 'Are you sure?'}%></td>
-            <td><%=link_to '<button type="button" class="btn btn-danger btn-xs">Restrict/Ban</button>'.html_safe,
-                   update_user_role_path(id: user.id, role: 'banned'),data: {confirm: 'Are you sure?'}%></td>
-        <%elsif user.role=='admin'%>
-            <td><%=link_to '<button type="button" class="btn btn-info btn-xs">Author</button>'.html_safe,
-                   update_user_role_path(id: user.id, role: 'author'),data: {confirm: 'Are you sure?'}%></td>
-            <td><%=link_to '<button type="button" class="btn btn-primary btn-xs">Moderator</button>'.html_safe,
-                   update_user_role_path(id: user.id, role: 'moderator'),data: {confirm: 'Are you sure?'}%></td>
-            <td><span class="glyphicon glyphicon-record" aria-hidden="true"></span></td>
-            <td><%=link_to '<button type="button" class="btn btn-danger btn-xs">Restrict/Ban</button>'.html_safe,
-                   update_user_role_path(id: user.id, role: 'banned'),data: {confirm: 'Are you sure?'}%></td>
-        <%end%>
-        <td><%=user.created_at%> <small>[<%=time_ago_in_words(user.created_at)%>]</small></td>
-      </tr>
-  <%end%>
-  </tbody>
-</table>
+        <tbody>
+        <tr ng-repeat="user in users">
+          <td>{{user.public_name}}</td>
+          <td>{{user.email}}</td>
+          <td ng-show="user.role == 'author'"><span class="glyphicon glyphicon-record" aria-hidden="true"></span></td>
+          <td ng-show="user.role != 'author'"><button ng-click="setRole(user, 1)" type="button" class="btn btn-info btn-xs">Author</button></td>
 
-<%= will_paginate @users %>
+          <td ng-show="user.role == 'moderator'"><span class="glyphicon glyphicon-record" aria-hidden="true"></span></td>
+          <td ng-show="user.role != 'moderator' && user.role!='banned'"><button ng-click="setRole(user, 2)" type="button" class="btn btn-primary btn-xs">Moderator</button></td>
+
+          <td ng-show="user.role == 'admin'"><span class="glyphicon glyphicon-record" aria-hidden="true"></span></td>
+          <td ng-show="user.role != 'admin' && user.role!='banned'"><button ng-click="setRole(user, 3)" type="button" class="btn btn-warning btn-xs">Admin</button></td>
+
+          <td colspan='3' ng-show="user.role == 'banned'"><span class="glyphicon glyphicon-warning-sign" aria-hidden="true">This user is banned.</span></td>
+          <td ng-show="user.role != 'banned'"><button ng-click="setRole(user, 4)" type="button" class="btn btn-danger btn-xs">Restrict/Ban</button></td>
+
+          <td>{{user.created_at | date:'yyyy-MM-dd'}}</td>
+        </tr>
+        </tbody>
+      </table>
+
+      <%= will_paginate @users %>
 <%end%>
+</div>

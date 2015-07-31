@@ -15,7 +15,7 @@ SchoolReview::Application.routes.draw do
   root 'engine#landingPage'
   get 'approve_review'  =>'reviews#approve'
   get 'ban_user'        =>'engine#banUser'
-  get 'update_user_role'=>'engine#updateUserRole'
+  put 'update_user_role'=>'engine#updateUserRole'
   get 'search_users'    =>'engine#index'
   get 'search_school'   =>'schools#searchSchool'
   get 'sent_messagebox' =>'message_boxes#sent'

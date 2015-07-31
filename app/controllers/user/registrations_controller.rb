@@ -12,7 +12,7 @@ class User::RegistrationsController < Devise::RegistrationsController
   # POST /resource
    def create
      build_resource(sign_up_params)
-     resource.role='admin'
+     resource.role='author'
      resource.email_notif=true
      resource_saved = resource.save
      yield resource if block_given?
