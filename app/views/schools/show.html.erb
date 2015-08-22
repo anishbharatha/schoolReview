@@ -18,7 +18,7 @@
         <h2 class='grand-rating'><%=((@reviews.average(:faculty_expertise)+@reviews.average(:faculty_communication)+
                 @reviews.average(:cost_worth)+@reviews.average(:transport)+@reviews.average(:library)+
                 @reviews.average(:satisfaction_rate)+@reviews.average(:infrastructure)+
-                @reviews.average(:sports)+@reviews.average(:research))/@reviews.size).round(1) %></h2>
+                @reviews.average(:sports)+@reviews.average(:research))/@reviews.size).round(2) %></h2>
     <%end%>
   </div>
 </div>
