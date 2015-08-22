@@ -6,14 +6,12 @@
         </div>
         <%=submit_tag :'Search users', :name=>nil, :class=>'btn btn-success'%>
     <%end%>
-
-    <div  ng-controller="engineCtrl">
+    <div ng-controller="engineCtrl">
 
       <%=hidden_field_tag :form_authenticity_token%>
 
       <div class='row'><h3>Listing users [Showing: <%=@users.size%>/<%=@users.total_entries%>] </h3></div>
 
-      <div class="row">{{response}}</div>
       <table class='table table-hover'>
         <thead>
         <tr>
@@ -32,16 +30,17 @@
         <tr ng-repeat="user in users">
           <td>{{user.public_name}}</td>
           <td>{{user.email}}</td>
-          <td ng-show="user.role == 'author'"><span class="glyphicon glyphicon-record" aria-hidden="true"></span></td>
-          <td ng-show="user.role != 'author'"><button ng-click="setRole(user, 1)" type="button" class="btn btn-info btn-xs">Author</button></td>
+          <td ng-show="user.role == 'author'">&#10008;</td>
+          <td ng-show="user.role != 'author' && user.role!='banned'"><button ng-click="setRole(user, 1)" type="button" class="btn btn-info btn-xs">Author</button></td>
 
-          <td ng-show="user.role == 'moderator'"><span class="glyphicon glyphicon-record" aria-hidden="true"></span></td>
+          <td ng-show="user.role == 'moderator'">&#10008;</td>
           <td ng-show="user.role != 'moderator' && user.role!='banned'"><button ng-click="setRole(user, 2)" type="button" class="btn btn-primary btn-xs">Moderator</button></td>
 
-          <td ng-show="user.role == 'admin'"><span class="glyphicon glyphicon-record" aria-hidden="true"></span></td>
+          <td ng-show="user.role == 'admin'">&#10008;</td>
           <td ng-show="user.role != 'admin' && user.role!='banned'"><button ng-click="setRole(user, 3)" type="button" class="btn btn-warning btn-xs">Admin</button></td>
 
-          <td colspan='3' ng-show="user.role == 'banned'"><span class="glyphicon glyphicon-warning-sign" aria-hidden="true">This user is banned.</span></td>
+          <td colspan='3' ng-show="user.role == 'banned'">&#10082; This user is banned.</td>
+          <td ng-show="user.role == 'banned'"><button ng-click="setRole(user, 1)" type="button" class="btn btn-success btn-xs">Unrestrict</button></td>
           <td ng-show="user.role != 'banned'"><button ng-click="setRole(user, 4)" type="button" class="btn btn-danger btn-xs">Restrict/Ban</button></td>
 
           <td>{{user.created_at | date:'yyyy-MM-dd'}}</td>

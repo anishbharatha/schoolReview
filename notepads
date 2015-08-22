@@ -2,3 +2,34 @@ placements.
 individual department reviews, accreditations for department. research.
 individual prof reviews (add professor)
 Add estd year to School
+
+<%@reviews.each do |review|%>
+      <tr data-toggle="collapse" data-target="#<%=review.id%>" class="accordion-toggle">
+        <td><%= link_to 'Show', review %></td>
+        <td><%if can? :edit, @review%><%= link_to 'Edit', edit_review_path(review)%><%end%></td>
+        <td><%if can? :destroy, @review%>
+              <%#<%= link_to 'Destroy', review, method: :delete, data: { confirm: 'Are you sure?'}, class:'btn btn-danger btn-xs'%>
+          <%end%>
+        </td>
+      </tr>
+
+      <tr class='hiddenRow accordion-body collapse no-border' id='<%=review.id%>'>
+        <td></td>
+        <td colspan='6'>Comments : <%=review.any_comments%></td>
+      </tr>
+    <%end%>
+
+<style>
+.hiddenRow {
+padding: 0 !important;
+}
+    tr.no-border td{
+            border:0;
+        }
+</style>
+
+<script>
+    $('.collapse').on('show.bs.collapse', function () {
+        $('.collapse.in').collapse('hide');
+    });
+</script>

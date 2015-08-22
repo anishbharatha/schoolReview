@@ -2,27 +2,33 @@
 
 <div class='row'>
   <div class='col-md-8 text-left'>
-    <h5><b>
-      <%if @reviews.size!=0 && @reviews.size==1%>
-          <%=@reviews.size%> Review
-      <%end%>
-      <%if @reviews.size!=0 && @reviews.size>1%>
-          <%=@reviews.size%> Reviews
-      <%end%>
-    </b></h5>
+    <h5>
+      <b><%= pluralize(@reviews.size, 'Review')%></b>
+    </h5>
   </div>
 </div>
 
-<%@reviews.each do |review|%>
+<table>
+  <thead>
+
+  </thead>
+
+  <tbody>
+  <%@reviews.each_with_index do |review, index|%>
     <tr>
-      <td><%= review.faculty_expertise+review.faculty_communication+review.cost_worth+
+      <td><b>#<%=index+1%></b>&nbsp;</td>
+      <td><%= ((review.faculty_expertise+review.faculty_communication+review.cost_worth+
                       review.transport+review.library+review.satisfaction_rate+review.infrastructure+
-                      review.sports+review.research %></td>
+                      review.sports+review.research)/9).round(1)%></td>
       <td><b><%=review.headline%></b></td>
       <td><%= review.user.public_name %></td>
     </tr>
-    <tr class='hiddenRow accordion-body collapse no-border'>
+
+    <tr>
       <td></td>
-      <td colspan='6'>Comments : <%=review.any_comments%></td>
+      <td colspan='3'>Comments : <%=review.any_comments%></td>
     </tr>
 <%end%>
+</tbody>
+
+</table>

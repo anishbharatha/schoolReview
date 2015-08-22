@@ -2,6 +2,9 @@
 
 <%=render 'searchSchool'%>
 
+<div ng-controller="engineCtrl">
+
+  <div ng-view></div>
 <div class='row'>
   <%if @reviews.size==0%>
       <h4>No Reviews available at the moment.</h4>
@@ -61,6 +64,8 @@
 <%end%>
 
 <%= link_to '<span class="glyphicon-class glyphicon glyphicon-chevron-up"></span> Back to top'.html_safe, '#Top' %>
+</div>
+
 
 <style>
   .each-review{

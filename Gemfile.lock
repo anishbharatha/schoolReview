@@ -25,9 +25,13 @@ GEM
       multi_json (~> 1.3)
       thread_safe (~> 0.1)
       tzinfo (~> 0.3.37)
-    angularjs-rails (1.4.3)
+    angular-rails-templates (0.2.0)
+      railties (>= 3.1)
+      sprockets (~> 2)
+      tilt
+    angularjs-rails (1.4.4)
     arel (4.0.2)
-    autoprefixer-rails (5.2.1.1)
+    autoprefixer-rails (5.2.1.2)
       execjs
       json
     bcrypt (3.1.10)
@@ -69,7 +73,7 @@ GEM
       faraday
       multi_json
     erubis (2.7.0)
-    execjs (2.5.2)
+    execjs (2.6.0)
     faraday (0.9.1)
       multipart-post (>= 1.2, < 3)
     ffi (1.9.10)
@@ -93,7 +97,7 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.25.1)
-    mini_magick (4.2.7)
+    mini_magick (4.2.10)
     minitest (4.7.5)
     multi_json (1.11.2)
     multipart-post (2.0.0)
@@ -144,7 +148,7 @@ GEM
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 3.0)
       netrc (~> 0.7)
-    rmagick (2.15.3)
+    rmagick (2.15.4)
     sass (3.2.19)
     sass-rails (4.0.5)
       railties (>= 4.0.0, < 5.0)
@@ -199,6 +203,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  angular-rails-templates
   angularjs-rails
   autoprefixer-rails
   bootstrap-sass (~> 3.3.3)

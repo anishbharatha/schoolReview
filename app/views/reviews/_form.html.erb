@@ -33,47 +33,47 @@
     <div class='row'>
       <div class='form-group col-md-4'>
         <%= f.label :faculty_expertise %><br>   <%=f.hidden_field :faculty_expertise%>
-        <input type="hidden" id="stars-fe" class="rating" value="0" data-fractions="2"/>
+        <input type="hidden" id="stars-fe" class="rating" value=<%=@review.faculty_expertise%> data-fractions="2"/>
       </div>
 
       <div class='form-group col-md-4'>
         <%= f.label :faculty_communication %><br>   <%= f.hidden_field :faculty_communication %>
-        <input type="hidden" id="stars-fc" class="rating" value="0" data-fractions="2"/>
+        <input type="hidden" id="stars-fc" class="rating" value=<%=@review.faculty_communication%> data-fractions="2"/>
       </div>
 
       <div class='form-group col-md-4'>
         <%= f.label :cost_worth %><br>  <%= f.hidden_field :cost_worth %>
-        <input type="hidden" id="stars-cw" class="rating" value="0" data-fractions="2"/>
+        <input type="hidden" id="stars-cw" class="rating" value=<%=@review.cost_worth%> data-fractions="2"/>
         </div>
     </div>
 
     <div class='row'>
         <div class='form-group col-md-4'>
           <%= f.label :transport %><br> <%= f.hidden_field :transport %>
-          <input type="hidden" id="stars-tr" class="rating" value="0" data-fractions="2"/>
+          <input type="hidden" id="stars-tr" class="rating" value=<%=@review.transport%> data-fractions="2"/>
         </div>
         <div class='form-group col-md-4'>
         <%= f.label :library %><br> <%= f.hidden_field :library %>
-          <input type="hidden" id="stars-li" class="rating" value="0" data-fractions="2"/>
+          <input type="hidden" id="stars-li" class="rating" value=<%=@review.library%> data-fractions="2"/>
         </div>
         <div class='form-group col-md-4'>
         <%= f.label :satisfaction_rate %><br>   <%= f.hidden_field :satisfaction_rate %>
-          <input type="hidden" id="stars-sr" class="rating" value="0" data-fractions="2"/>
+          <input type="hidden" id="stars-sr" class="rating" value=<%=@review.satisfaction_rate%> data-fractions="2"/>
         </div>
     </div>
 
     <div class='row'>
         <div class='form-group col-md-4'>
         <%= f.label :infrastructure %><br>  <%= f.hidden_field :infrastructure %>
-          <input type="hidden" id="stars-in" class="rating" value="0" data-fractions="2"/>
+          <input type="hidden" id="stars-in" class="rating" value=<%=@review.infrastructure%> data-fractions="2"/>
       </div>
         <div class='form-group col-md-4'>
         <%= f.label :sports %><br>  <%= f.hidden_field :sports %>
-          <input type="hidden" id="stars-sp" class="rating" value="0" data-fractions="2"/>
+          <input type="hidden" id="stars-sp" class="rating" value=<%=@review.sports%> data-fractions="2"/>
       </div>
         <div class='form-group col-md-4'>
         <%= f.label :research %><br>    <%= f.hidden_field :research %>
-          <input type="hidden" id="stars-re" class="rating" value="0" data-fractions="2"/>
+          <input type="hidden" id="stars-re" class="rating" value=<%=@review.research%> data-fractions="2"/>
       </div>
     </div>
 

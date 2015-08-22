@@ -26,6 +26,7 @@ gem 'pg'
 gem 'omniauth'
 gem 'omniauth-google'
 gem 'angularjs-rails'
+gem 'angular-rails-templates'
 
 group :development do
   gem 'sqlite3'
