@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html ng-app="studentOpinion">
-<head>
-  <title>Student Opinion</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application','data-turbolinks-track'=> true %>
+    <head>
+      <title>Student Opinion</title>
+      <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+      <%= stylesheet_link_tag params[:controller] %>
 
-  <%= stylesheet_link_tag params[:controller] %>
-  <%= javascript_include_tag params[:controller]%>
-  <%= csrf_meta_tags %>
-  <%= javascript_include_tag 'bootstrap'%>
-  <%#script src='https://www.google.com/recaptcha/api.js'></script#%>
-</head>
+      <%= javascript_include_tag 'application','data-turbolinks-track'=> true %>
+      <%= javascript_include_tag params[:controller]%>
+
+      <%= csrf_meta_tags %>
+      <%= javascript_include_tag 'bootstrap'%>
+      <%#script src='https://www.google.com/recaptcha/api.js'></script#%>
+
+    </head>
 
 <body>
 
@@ -27,7 +29,7 @@
 </div> <!-- End of the Container class -->
 
 <div class='navbar text-center' id='footer' style='margin-top: 20px;'>
-  <%= link_to 'Talk to us?', contact_us_path, :class => 'text-warning'%> <p class='text-success'>With <span class="glyphicon glyphicon-heart" aria-hidden="true"></span> for the student community</p>
+  <%= link_to 'Talk to us?', contact_us_path, :class => 'text-warning'%> <p class='text-success'>With &#10084; for the student community</p>
 </div>
 </body>
 </html>

@@ -1,10 +1,10 @@
 class ReviewsController < ApplicationController
   before_action :set_review, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
-  respond_to :html
+  respond_to :html, :json
 
   def index
-    @reviews = Review.all.order(:is_approved).paginate(page: params[:page], per_page: 5)
+    @reviews = Review.all.order(:is_approved).paginate(page: params[:page], per_page: 10)
     respond_with(@reviews)
   end
 
@@ -20,6 +20,7 @@ class ReviewsController < ApplicationController
 
   def edit
     @schools = School.all
+    @review.is_approved=false
   end
 
   def create
@@ -41,10 +42,10 @@ class ReviewsController < ApplicationController
 
   def approve
     @review = Review.find(params[:id])
-    @review.update_attribute(:is_approved, true)
-    @reviews = Review.all
-    respond_with(@reviews) do |format|
-      format.html {redirect_to reviews_url }
+    if @review.update_attribute(:is_approved, true)
+      render :nothing=>true, :status =>'200'
+    else
+      format.json { render json: @review.errors, status: :unprocessable_entity }
     end
   end
 
@@ -54,6 +55,8 @@ class ReviewsController < ApplicationController
     end
 
     def review_params
-      params.require(:review).permit(:headline, :faculty_expertise, :faculty_communication, :cost_worth, :transport, :library, :satisfaction_rate, :infrastructure, :sports, :research, :any_comments, :is_approved, :user_id, :school_id)
+      params.require(:review).permit(:headline, :faculty_expertise, :faculty_communication, :cost_worth, :transport,
+                                     :library, :satisfaction_rate, :infrastructure, :sports, :research, :any_comments,
+                                     :is_approved, :user_id, :school_id)
     end
 end

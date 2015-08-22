@@ -18,7 +18,7 @@
         <h2 class='grand-rating'><%=((@reviews.average(:faculty_expertise)+@reviews.average(:faculty_communication)+
                 @reviews.average(:cost_worth)+@reviews.average(:transport)+@reviews.average(:library)+
                 @reviews.average(:satisfaction_rate)+@reviews.average(:infrastructure)+
-                @reviews.average(:sports)+@reviews.average(:research))/9).round(1) %></h2>
+                @reviews.average(:sports)+@reviews.average(:research))/@reviews.size).round(1) %></h2>
     <%end%>
   </div>
 </div>
@@ -28,10 +28,10 @@
     <li role='presentation'>
       <a href='#about' aria-controls='about' role='tab' data-toggle='tab'>About</a>
     </li>
-    <li role='presentation' class="active">
+    <li role='presentation'>
       <a href='#discussions' aria-controls='discussions' role='tab' data-toggle='tab'>Discussions</a>
     </li>
-    <li role='presentation'>
+    <li role='presentation' class="active">
       <a href='#reviews' aria-controls='reviews' role='tab' data-toggle='tab'>Reviews</a>
     </li>
     <li role='presentation'>
@@ -41,8 +41,8 @@
 
   <div class='tab-content'>
     <div role='tabpanel' class='tab-pane' id='about'><%= render 'aboutSchool'%></div>
-    <div role='tabpanel' class='tab-pane active' id='discussions'><%= render 'postsSchool'%></div>
-    <div role='tabpanel' class='tab-pane' id='reviews'><%= render 'reviewsSchool'%></div>
+    <div role='tabpanel' class='tab-pane' id='discussions'><%= render 'postsSchool'%></div>
+    <div role='tabpanel' class='tab-pane active' id='reviews'><%= render 'reviewsSchool'%></div>
     <div role='tabpanel' class='tab-pane' id='gallery'><%= render 'gallerySchool'%></div>
   </div>
 </div>

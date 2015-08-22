@@ -13,7 +13,8 @@ SchoolReview::Application.routes.draw do
   devise_for :users, controllers:{sessions:'user/sessions',registrations:'user/registrations',passwords:'user/passwords',confirmations:'user/confirmations'}
 
   root 'engine#landingPage'
-  get 'approve_review'  =>'reviews#approve'
+  get 'landingPage'     => 'engine#landingPage'
+  put 'approve_review'  =>'reviews#approve'
   get 'ban_user'        =>'engine#banUser'
   put 'update_user_role'=>'engine#updateUserRole'
   get 'search_users'    =>'engine#index'

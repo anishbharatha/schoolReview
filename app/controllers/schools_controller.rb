@@ -2,7 +2,7 @@ class SchoolsController < ApplicationController
   before_action :set_school, only: [:show, :edit, :update, :destroy]
   before_filter :authenticate_user!
   load_and_authorize_resource
-  respond_to :html
+  respond_to :html, :json
   require 'will_paginate/array'
 
   def index
