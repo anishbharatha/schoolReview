@@ -1,7 +1,7 @@
 # config valid only for current version of Capistrano
 lock '3.3.5'
 
-set :application, 'ireviewschool'
+set :application, 'studentOpinion'
 set :repo_url, 'git@github.com:anishbharatha/schoolReview.git'
 
 # Default branch is :master

@@ -3,8 +3,12 @@
 <%= form_tag(contact_us_path, :method=>'post', :multipart => true) do %>
     <div class='form-group'>
         <label class='control-label'>Your Email Id</label>
-        <%= email_field_tag 'sender_email_id', nil, class:'form-control',
-        :placeholder=>'Email Id', autocomplete: 'off', autofocus: true, :required=>true %>
+      <%if not user_signed_in?%>
+          <%= email_field_tag 'sender_email_id', nil, class:'form-control',
+                              :placeholder=>'Email Id', autocomplete: 'off', autofocus: true, :required=>true %>
+          <%else%>
+            <%= email_field_tag 'sender_email_id', current_user.email, class:'form-control', readonly:'true'%>
+          <%end%>
     </div>
     <div class='form-group'>
         <label class='control-label'>Subject</label>
